@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -162,114 +163,132 @@
 </div>
 
 <script>
-
 const SUPABASE_URL =
-"https://hiizlkcrltevjdkgftzl.supabase.co";
+  "https://hiizlkcrltedvjkgtfzl.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_h6P4jI0L4bfeQrLsUZHfCw_iDEjTW6A";
+  "sb_publishable_h6P4jI0L4bfeQrLsUZHfCw_iDEjTW6A";
 
 const supabaseClient =
-window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 
 const form =
-document.getElementById("registerForm");
+  document.getElementById("registerForm");
 
 const button =
-document.getElementById("registerButton");
+  document.getElementById("registerButton");
 
 const message =
-document.getElementById("message");
-
+  document.getElementById("message");
 
 form.addEventListener("submit", async function(event) {
 
   event.preventDefault();
 
   const name =
-  document.getElementById("name").value.trim();
+    document.getElementById("name").value.trim();
 
   const email =
-  document.getElementById("email").value.trim();
+    document.getElementById("email").value.trim();
 
   const password =
-  document.getElementById("password").value;
+    document.getElementById("password").value;
 
   const password2 =
-  document.getElementById("password2").value;
+    document.getElementById("password2").value;
 
+  message.textContent = "";
+  message.className = "";
 
   if (password !== password2) {
-
     message.textContent =
-    "Şifreler birbirine eşleşmiyor.";
+      "Şifreler birbirine eşleşmiyor.";
 
     message.className = "error";
-
     return;
   }
 
+  if (password.length < 6) {
+    message.textContent =
+      "Şifre en az 6 karakter olmalıdır.";
+
+    message.className = "error";
+    return;
+  }
 
   button.disabled = true;
   button.textContent =
-  "Hesap oluşturuluyor...";
+    "Hesap oluşturuluyor...";
 
+  try {
 
-  const { data, error } =
-  await supabaseClient.auth.signUp({
+    const { data, error } =
+      await supabaseClient.auth.signUp({
 
-    email: email,
+        email: email,
 
-    password: password,
+        password: password,
 
-    options: {
+        options: {
 
-      emailRedirectTo:
-      "https://ea-technic-garage.github.io/EA-Technic-Garage-web-sitesi/giris.html",
+          emailRedirectTo:
+            "https://ea-technic-garage.github.io/EA-Technic-Garage-web-sitesi/EA-Technic-Garage/giris.html",
 
-      data: {
-        full_name: name,
-        account_type: "customer"
-      }
+          data: {
+            full_name: name,
+            account_type: "customer"
+          }
 
+        }
+
+      });
+
+    if (error) {
+      console.error("Supabase kayıt hatası:", error);
+
+      message.textContent =
+        "Kayıt başarısız: " + error.message;
+
+      message.className = "error";
+
+      button.disabled = false;
+      button.textContent =
+        "Hesap Oluştur";
+
+      return;
     }
 
-  });
+    message.textContent =
+      "Hesabınız oluşturuldu! E-posta adresinize gelen doğrulama bağlantısına tıklayın.";
 
+    message.className = "success";
 
-  if (error) {
+    form.reset();
 
-    console.error(error);
+    button.disabled = false;
+    button.textContent =
+      "Hesap Oluştur";
+
+  } catch (err) {
+
+    console.error("Bağlantı hatası:", err);
 
     message.textContent =
-    "Kayıt başarısız: " + error.message;
+      "Sunucuya bağlanılamadı. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.";
 
     message.className = "error";
 
     button.disabled = false;
     button.textContent =
-    "Hesap Oluştur";
-
-    return;
-
+      "Hesap Oluştur";
   }
 
-
-  message.textContent =
-  "Hesabınız oluşturuldu. E-posta adresinizi kontrol edin.";
-
-  message.className = "success";
-
-  button.disabled = false;
-  button.textContent =
-  "Hesap Oluştur";
-
 });
-
 </script>
 
 </body>
 </html>
+```
