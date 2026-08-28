@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EA Technic Garage | E-posta Doğrulama</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111827;
+    }
+
+    .box {
+      width: 100%;
+      max-width: 430px;
+      background: white;
+      padding: 40px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      color: #111827;
+    }
+
+    p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .loading {
+      color: #374151;
+      font-weight: bold;
+    }
+
+    .success {
+      color: #16803c;
+      font-weight: bold;
+    }
+
+    .error {
+      color: #dc2626;
+      font-weight: bold;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 13px 22px;
+      background: #dc2626;
+      color: white;
+      text-decoration: none;
+      border-radius: 9px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <h1>EA Technic Garage</h1>
+
+    <p id="message" class="loading">
+      E-posta adresiniz doğrulanıyor...
+    </p>
+
+  </div>
+
+
+  <script>
+
+    const SUPABASE_URL =
+      "https://hiizlkcrltedvjkgtfzl.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_h6P4jI0L4bfeQrLsUZHfCw_iDEjTW6A";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+
+    const message =
+      document.getElementById("message");
+
+
+    async function verifyEmail() {
+
+      try {
+
+        const params =
+          new URLSearchParams(
+            window.location.search
+          );
+
+        const tokenHash =
+          params.get("token_hash");
+
+        const type =
+          params.get("type");
+
+
+        /*
+         * Supabase bazı doğrulama bağlantılarında
+         * token_hash gönderir.
+         */
+
+        if (tokenHash) {
+
+          const { error } =
+            await supabaseClient.auth.verifyOtp({
+              token_hash: tokenHash,
+              type: type || "email"
+            });
+
+
+          if (error) {
+
+            console.error(error);
+
+            message.textContent =
+              "E-posta doğrulaması başarısız: " +
+              error.message;
+
+            message.className =
+              "error";
+
+            return;
+          }
+
+
+          message.textContent =
+            "E-posta adresiniz başarıyla doğrulandı! Ana sayfaya yönlendiriliyorsunuz...";
+
+          message.className =
+            "success";
+
+
+          setTimeout(function() {
+
+            window.location.href =
+              "index.html";
+
+          }, 2000);
+
+          return;
+        }
+
+
+        /*
+         * Supabase doğrulama bağlantısı
+         * hash ile geldiyse oturum değişikliğini
+         * kontrol ediyoruz.
+         */
+
+        const { data } =
+          await supabaseClient.auth.getSession();
+
+
+        if (data && data.session) {
+
+          message.textContent =
+            "E-posta adresiniz başarıyla doğrulandı! Ana sayfaya yönlendiriliyorsunuz...";
+
+          message.className =
+            "success";
+
+
+          setTimeout(function() {
+
+            window.location.href =
+              "index.html";
+
+          }, 2000);
+
+          return;
+        }
+
+
+        message.innerHTML =
+          'Doğrulama bağlantısı geçersiz veya süresi dolmuş.<br><br>' +
+          '<a href="kayit.html">Kayıt Sayfasına Dön</a>';
+
+        message.className =
+          "error";
+
+      }
+
+      catch (error) {
+
+        console.error(error);
+
+        message.innerHTML =
+          'Doğrulama sırasında bir hata oluştu.<br><br>' +
+          '<a href="index.html">Ana Sayfaya Dön</a>';
+
+        message.className =
+          "error";
+
+      }
+
+    }
+
+
+    verifyEmail();
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EA Technic Garage | Giriş Yap</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        linear-gradient(
+          135deg,
+          #030712,
+          #111827,
+          #1f2937
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 430px;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo a {
+      text-decoration: none;
+      color: #111827;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      display: block;
+      color: #dc2626;
+      font-size: 13px;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0 0 8px;
+      color: #111827;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      margin-top: 17px;
+      font-weight: 700;
+      color: #111827;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 9px;
+      font-size: 15px;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      background: #dc2626;
+      color: #ffffff;
+      padding: 14px;
+      border-radius: 9px;
+      margin-top: 25px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #b91c1c;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    #message {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      min-height: 20px;
+    }
+
+    .error {
+      color: #dc2626;
+    }
+
+    .success {
+      color: #16803c;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 22px;
+      font-size: 14px;
+    }
+
+    .links a {
+      color: #dc2626;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .back:hover {
+      color: #111827;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+
+    <div class="logo">
+      <a href="index.html">
+        EA TECHNIC
+      </a>
+
+      <span>
+        GARAGE
+      </span>
+    </div>
+
+    <h1>Giriş Yap</h1>
+
+    <div class="subtitle">
+      EA Technic Garage hesabınıza giriş yapın
+    </div>
+
+
+    <form id="loginForm">
+
+      <label for="email">
+        E-posta
+      </label>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="E-posta adresiniz"
+        autocomplete="email"
+        required
+      >
+
+
+      <label for="password">
+        Şifre
+      </label>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Şifreniz"
+        autocomplete="current-password"
+        required
+      >
+
+
+      <button
+        type="submit"
+        id="loginButton"
+      >
+        Giriş Yap
+      </button>
+
+    </form>
+
+
+    <div id="message"></div>
+
+
+    <div class="links">
+      Hesabınız yok mu?
+      <a href="kayit.html">
+        Kayıt Ol
+      </a>
+    </div>
+
+
+    <a
+      class="back"
+      href="index.html"
+    >
+      ← Ana sayfaya dön
+    </a>
+
+  </div>
+
+
+  <!-- SUPABASE -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+  <script>
+
+    const SUPABASE_URL =
+      "https://hiizlkcrltedvjkgtfzl.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_h6P4jI0L4bfeQrLsUZHfCw_iDEjTW6A";
+
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const loginButton =
+      document.getElementById("loginButton");
+
+    const message =
+      document.getElementById("message");
+
+
+    loginForm.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+          document
+            .getElementById("email")
+            .value
+            .trim();
+
+
+        const password =
+          document
+            .getElementById("password")
+            .value;
+
+
+        message.textContent = "";
+        message.className = "";
+
+
+        loginButton.disabled = true;
+        loginButton.textContent =
+          "Giriş yapılıyor...";
+
+
+        try {
+
+          const {
+            data,
+            error
+          } =
+            await supabaseClient.auth.signInWithPassword({
+              email: email,
+              password: password
+            });
+
+
+          if (error) {
+
+            console.error(error);
+
+            message.textContent =
+              "Giriş yapılamadı: " +
+              error.message;
+
+            message.className =
+              "error";
+
+            loginButton.disabled = false;
+
+            loginButton.textContent =
+              "Giriş Yap";
+
+            return;
+          }
+
+
+          message.textContent =
+            "Giriş başarılı!";
+
+          message.className =
+            "success";
+
+
+          setTimeout(function() {
+
+            window.location.href =
+              "index.html";
+
+          }, 800);
+
+
+        } catch (error) {
+
+          console.error(error);
+
+          message.textContent =
+            "Bağlantı sırasında bir hata oluştu.";
+
+          message.className =
+            "error";
+
+          loginButton.disabled = false;
+
+          loginButton.textContent =
+            "Giriş Yap";
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

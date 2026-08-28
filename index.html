@@ -7,93 +7,35 @@
   <title>EA Technic Garage | Otomotiv Yedek Parça</title>
 
   <link rel="stylesheet" href="styles.css">
-
-  <style>
-    /* ==========================================
-       HESAP BUTONLARI
-       ========================================== */
-
-    .account-buttons {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-left: auto;
-      margin-right: 10px;
-    }
-
-    .account-buttons a {
-      display: inline-block;
-      text-decoration: none;
-      color: #111827;
-      background: white;
-      border: 1px solid #111827;
-      padding: 9px 13px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .account-buttons a:hover {
-      background: #111827;
-      color: white;
-    }
-
-    /* Mobil ekran */
-
-    @media (max-width: 900px) {
-
-      .header {
-        flex-wrap: wrap;
-      }
-
-      .account-buttons {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        margin: 10px 0 0;
-      }
-
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- ==========================================
+  <!-- =========================
        ÜST BAR
-       ========================================== -->
+  ========================== -->
 
   <div class="topbar">
-
-    <div>
-      EA TECHNIC GARAGE
-    </div>
-
-    <div>
-      Hızlı Kargo • Güvenli Alışveriş • Teknik Destek
-    </div>
-
+    <div>EA TECHNIC GARAGE</div>
+    <div>Hızlı Kargo • Güvenli Alışveriş • Teknik Destek</div>
   </div>
 
 
-  <!-- ==========================================
+  <!-- =========================
        HEADER
-       ========================================== -->
+  ========================== -->
 
   <header class="header">
 
-    <a class="logo-wrap" href="#anasayfa">
+    <a class="logo-wrap" href="index.html">
 
-      <img
-        src="assets/logo.jpeg"
-        alt="EA Technic Garage"
-      >
+      <div class="logo-text">
+        EA TECHNIC
+        <span>GARAGE</span>
+      </div>
 
     </a>
 
-
-    <!-- MENÜ -->
 
     <nav>
 
@@ -120,7 +62,7 @@
     </nav>
 
 
-    <!-- HESAP BUTONLARI -->
+    <!-- MÜŞTERİ HESAP BUTONLARI -->
 
     <div class="account-buttons">
 
@@ -141,28 +83,21 @@
       class="cart-button"
       onclick="showCart()"
     >
-
       🛒 Sepet
-
-      <span id="cartCount">
-        0
-      </span>
-
+      <span id="cartCount">0</span>
     </button>
 
   </header>
 
 
-  <!-- ==========================================
+  <!-- =========================
        ANA İÇERİK
-       ========================================== -->
+  ========================== -->
 
   <main>
 
 
-    <!-- ==========================================
-         HERO
-         ========================================== -->
+    <!-- HERO -->
 
     <section
       class="hero"
@@ -181,13 +116,9 @@
         </h1>
 
         <p class="hero-text">
-
           EA Technic Garage ile kaliteli yedek parçaları
-          kolayca bulun.
-
-          Aracınızı seçin, uygun ürünleri keşfedin
-          ve güvenle sipariş verin.
-
+          kolayca bulun. Aracınızı seçin, uygun ürünleri
+          keşfedin ve güvenle sipariş verin.
         </p>
 
 
@@ -214,9 +145,10 @@
     </section>
 
 
-    <!-- ==========================================
+
+    <!-- =========================
          ARAÇ SEÇİCİ
-         ========================================== -->
+    ========================== -->
 
     <section
       class="vehicle-section"
@@ -243,7 +175,6 @@
 
 
         <div class="vehicle-form">
-
 
           <select id="brand">
 
@@ -317,33 +248,13 @@
               Yıl
             </option>
 
-            <option>
-              2026
-            </option>
-
-            <option>
-              2025
-            </option>
-
-            <option>
-              2024
-            </option>
-
-            <option>
-              2023
-            </option>
-
-            <option>
-              2022
-            </option>
-
-            <option>
-              2021
-            </option>
-
-            <option>
-              2020
-            </option>
+            <option>2026</option>
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
 
           </select>
 
@@ -368,9 +279,10 @@
     </section>
 
 
-    <!-- ==========================================
+
+    <!-- =========================
          KATEGORİLER
-         ========================================== -->
+    ========================== -->
 
     <section
       class="section"
@@ -401,7 +313,6 @@
           class="category-card"
           onclick="filterProducts('Motor')"
         >
-
           ⚙️
 
           <strong>
@@ -419,7 +330,6 @@
           class="category-card"
           onclick="filterProducts('Fren')"
         >
-
           🛑
 
           <strong>
@@ -437,7 +347,6 @@
           class="category-card"
           onclick="filterProducts('Filtre')"
         >
-
           🔧
 
           <strong>
@@ -455,7 +364,6 @@
           class="category-card"
           onclick="filterProducts('Elektrik')"
         >
-
           💡
 
           <strong>
@@ -473,7 +381,6 @@
           class="category-card"
           onclick="filterProducts('Süspansiyon')"
         >
-
           🔩
 
           <strong>
@@ -491,7 +398,6 @@
           class="category-card"
           onclick="filterProducts('Debriyaj')"
         >
-
           ⚙️
 
           <strong>
@@ -510,9 +416,10 @@
     </section>
 
 
-    <!-- ==========================================
+
+    <!-- =========================
          ÜRÜNLER
-         ========================================== -->
+    ========================== -->
 
     <section
       class="section products-section"
@@ -573,7 +480,6 @@
             Birçok model ile uyumlu
           </p>
 
-
           <div class="product-bottom">
 
             <strong>
@@ -589,6 +495,7 @@
           </div>
 
         </article>
+
 
 
         <!-- ÜRÜN 2 -->
@@ -614,7 +521,6 @@
             Kaliteli filtrasyon
           </p>
 
-
           <div class="product-bottom">
 
             <strong>
@@ -630,6 +536,7 @@
           </div>
 
         </article>
+
 
 
         <!-- ÜRÜN 3 -->
@@ -655,7 +562,6 @@
             Uzun ömürlü performans
           </p>
 
-
           <div class="product-bottom">
 
             <strong>
@@ -671,6 +577,7 @@
           </div>
 
         </article>
+
 
 
         <!-- ÜRÜN 4 -->
@@ -696,7 +603,6 @@
             Çift set
           </p>
 
-
           <div class="product-bottom">
 
             <strong>
@@ -719,9 +625,10 @@
     </section>
 
 
-    <!-- ==========================================
+
+    <!-- =========================
          PROMO
-         ========================================== -->
+    ========================== -->
 
     <section class="promo">
 
@@ -752,9 +659,10 @@
     </section>
 
 
-    <!-- ==========================================
+
+    <!-- =========================
          HAKKIMIZDA
-         ========================================== -->
+    ========================== -->
 
     <section
       class="section about"
@@ -770,13 +678,10 @@
       </h2>
 
       <p>
-
         EA Technic Garage için bu alanı işletmenizin
-        gerçek hikâyesi, uzmanlık alanları, hizmet bölgeleri
-        ve müşteri yaklaşımıyla doldurabilirsiniz.
-
+        gerçek hikâyesi, uzmanlık alanları, hizmet
+        bölgeleri ve müşteri yaklaşımıyla doldurabilirsiniz.
         Bu bölüm müşterinin size güvenmesini sağlar.
-
       </p>
 
     </section>
@@ -784,9 +689,10 @@
   </main>
 
 
-  <!-- ==========================================
+
+  <!-- =========================
        FOOTER
-       ========================================== -->
+  ========================== -->
 
   <footer id="iletisim">
 
@@ -795,11 +701,9 @@
 
       <div>
 
-        <img
-          src="assets/logo.jpeg"
-          alt="EA Technic Garage"
-          class="footer-logo"
-        >
+        <div class="footer-logo-text">
+          EA TECHNIC GARAGE
+        </div>
 
         <p>
           Otomotiv yedek parça ve teknik çözümler.
@@ -847,6 +751,14 @@
           Hakkımızda
         </a>
 
+        <a href="giris.html">
+          Giriş Yap
+        </a>
+
+        <a href="kayit.html">
+          Kayıt Ol
+        </a>
+
       </div>
 
 
@@ -854,18 +766,14 @@
 
 
     <div class="copyright">
-
-      © 2026 EA Technic Garage.
-      Tüm hakları saklıdır.
-
+      © 2026 EA Technic Garage. Tüm hakları saklıdır.
     </div>
 
   </footer>
 
 
-  <!-- ==========================================
-       BİLDİRİM
-       ========================================== -->
+
+  <!-- TOAST -->
 
   <div
     id="toast"
@@ -873,9 +781,7 @@
   ></div>
 
 
-  <!-- ==========================================
-       JAVASCRIPT
-       ========================================== -->
+  <!-- JAVASCRIPT -->
 
   <script src="script.js"></script>
 
