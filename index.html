@@ -3,210 +3,881 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>EA Technic Garage | Otomotiv Yedek Parça</title>
+
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ==========================================
+       HESAP BUTONLARI
+       ========================================== */
+
+    .account-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      margin-right: 10px;
+    }
+
+    .account-buttons a {
+      display: inline-block;
+      text-decoration: none;
+      color: #111827;
+      background: white;
+      border: 1px solid #111827;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .account-buttons a:hover {
+      background: #111827;
+      color: white;
+    }
+
+    /* Mobil ekran */
+
+    @media (max-width: 900px) {
+
+      .header {
+        flex-wrap: wrap;
+      }
+
+      .account-buttons {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin: 10px 0 0;
+      }
+
+    }
+  </style>
 </head>
+
 <body>
 
+  <!-- ==========================================
+       ÜST BAR
+       ========================================== -->
+
   <div class="topbar">
-    <div>EA TECHNIC GARAGE</div>
-    <div>Hızlı Kargo • Güvenli Alışveriş • Teknik Destek</div>
+
+    <div>
+      EA TECHNIC GARAGE
+    </div>
+
+    <div>
+      Hızlı Kargo • Güvenli Alışveriş • Teknik Destek
+    </div>
+
   </div>
 
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+
   <header class="header">
-    <a class="logo-wrap" href="#">
-      <img src="assets/logo.jpeg" alt="EA Technic Garage">
+
+    <a class="logo-wrap" href="#anasayfa">
+
+      <img
+        src="assets/logo.jpeg"
+        alt="EA Technic Garage"
+      >
+
     </a>
 
+
+    <!-- MENÜ -->
+
     <nav>
-      <a href="#anasayfa">Ana Sayfa</a>
-      <a href="#kategoriler">Kategoriler</a>
-      <a href="#urunler">Ürünler</a>
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#iletisim">İletişim</a>
+
+      <a href="#anasayfa">
+        Ana Sayfa
+      </a>
+
+      <a href="#kategoriler">
+        Kategoriler
+      </a>
+
+      <a href="#urunler">
+        Ürünler
+      </a>
+
+      <a href="#hakkimizda">
+        Hakkımızda
+      </a>
+
+      <a href="#iletisim">
+        İletişim
+      </a>
+
     </nav>
 
-    <button class="cart-button" onclick="showCart()">
-      🛒 Sepet <span id="cartCount">0</span>
+
+    <!-- HESAP BUTONLARI -->
+
+    <div class="account-buttons">
+
+      <a href="giris.html">
+        Giriş Yap
+      </a>
+
+      <a href="kayit.html">
+        Kayıt Ol
+      </a>
+
+    </div>
+
+
+    <!-- SEPET -->
+
+    <button
+      class="cart-button"
+      onclick="showCart()"
+    >
+
+      🛒 Sepet
+
+      <span id="cartCount">
+        0
+      </span>
+
     </button>
+
   </header>
 
+
+  <!-- ==========================================
+       ANA İÇERİK
+       ========================================== -->
+
   <main>
-    <section class="hero" id="anasayfa">
+
+
+    <!-- ==========================================
+         HERO
+         ========================================== -->
+
+    <section
+      class="hero"
+      id="anasayfa"
+    >
+
       <div class="hero-content">
-        <p class="eyebrow">PROFESYONEL OTOMOTİV ÇÖZÜMLERİ</p>
-        <h1>Aracınız için <span>doğru parça.</span></h1>
-        <p class="hero-text">
-          EA Technic Garage ile kaliteli yedek parçaları kolayca bulun.
-          Aracınızı seçin, uygun ürünleri keşfedin ve güvenle sipariş verin.
+
+        <p class="eyebrow">
+          PROFESYONEL OTOMOTİV ÇÖZÜMLERİ
         </p>
+
+        <h1>
+          Aracınız için
+          <span>doğru parça.</span>
+        </h1>
+
+        <p class="hero-text">
+
+          EA Technic Garage ile kaliteli yedek parçaları
+          kolayca bulun.
+
+          Aracınızı seçin, uygun ürünleri keşfedin
+          ve güvenle sipariş verin.
+
+        </p>
+
+
         <div class="hero-buttons">
-          <a href="#arac-sec" class="btn primary">Aracıma Uygun Parçayı Bul</a>
-          <a href="#urunler" class="btn secondary">Ürünleri İncele</a>
+
+          <a
+            href="#arac-sec"
+            class="btn primary"
+          >
+            Aracıma Uygun Parçayı Bul
+          </a>
+
+          <a
+            href="#urunler"
+            class="btn secondary"
+          >
+            Ürünleri İncele
+          </a>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="vehicle-section" id="arac-sec">
+
+    <!-- ==========================================
+         ARAÇ SEÇİCİ
+         ========================================== -->
+
+    <section
+      class="vehicle-section"
+      id="arac-sec"
+    >
+
       <div class="vehicle-card">
+
         <div>
-          <p class="eyebrow dark">ARAÇ SEÇİCİ</p>
-          <h2>Aracınızı seçin</h2>
-          <p>Size uygun yedek parçaları daha hızlı bulalım.</p>
+
+          <p class="eyebrow dark">
+            ARAÇ SEÇİCİ
+          </p>
+
+          <h2>
+            Aracınızı seçin
+          </h2>
+
+          <p>
+            Size uygun yedek parçaları daha hızlı bulalım.
+          </p>
+
         </div>
+
 
         <div class="vehicle-form">
+
+
           <select id="brand">
-            <option value="">Marka</option>
-            <option>BMW</option>
-            <option>Mercedes-Benz</option>
-            <option>Volkswagen</option>
-            <option>Ford</option>
-            <option>Renault</option>
-            <option>Fiat</option>
+
+            <option value="">
+              Marka
+            </option>
+
+            <option>
+              BMW
+            </option>
+
+            <option>
+              Mercedes-Benz
+            </option>
+
+            <option>
+              Volkswagen
+            </option>
+
+            <option>
+              Ford
+            </option>
+
+            <option>
+              Renault
+            </option>
+
+            <option>
+              Fiat
+            </option>
+
           </select>
+
 
           <select id="model">
-            <option value="">Model</option>
-            <option>3 Serisi</option>
-            <option>C Serisi</option>
-            <option>Golf</option>
-            <option>Focus</option>
-            <option>Clio</option>
-            <option>Egea</option>
+
+            <option value="">
+              Model
+            </option>
+
+            <option>
+              3 Serisi
+            </option>
+
+            <option>
+              C Serisi
+            </option>
+
+            <option>
+              Golf
+            </option>
+
+            <option>
+              Focus
+            </option>
+
+            <option>
+              Clio
+            </option>
+
+            <option>
+              Egea
+            </option>
+
           </select>
+
 
           <select id="year">
-            <option value="">Yıl</option>
-            <option>2026</option><option>2025</option><option>2024</option>
-            <option>2023</option><option>2022</option><option>2021</option>
-            <option>2020</option>
+
+            <option value="">
+              Yıl
+            </option>
+
+            <option>
+              2026
+            </option>
+
+            <option>
+              2025
+            </option>
+
+            <option>
+              2024
+            </option>
+
+            <option>
+              2023
+            </option>
+
+            <option>
+              2022
+            </option>
+
+            <option>
+              2021
+            </option>
+
+            <option>
+              2020
+            </option>
+
           </select>
 
-          <button class="btn primary" onclick="findParts()">Parçaları Bul</button>
+
+          <button
+            class="btn primary"
+            onclick="findParts()"
+          >
+            Parçaları Bul
+          </button>
+
         </div>
 
-        <div id="vehicleMessage" class="message"></div>
+
+        <div
+          id="vehicleMessage"
+          class="message"
+        ></div>
+
       </div>
+
     </section>
 
-    <section class="section" id="kategoriler">
+
+    <!-- ==========================================
+         KATEGORİLER
+         ========================================== -->
+
+    <section
+      class="section"
+      id="kategoriler"
+    >
+
       <div class="section-title">
+
         <div>
-          <p class="eyebrow dark">KATEGORİLER</p>
-          <h2>İhtiyacınız olan parçayı bulun</h2>
+
+          <p class="eyebrow dark">
+            KATEGORİLER
+          </p>
+
+          <h2>
+            İhtiyacınız olan parçayı bulun
+          </h2>
+
         </div>
+
       </div>
+
 
       <div class="category-grid">
-        <button class="category-card" onclick="filterProducts('Motor')">⚙️<strong>Motor</strong><span>Motor parçaları</span></button>
-        <button class="category-card" onclick="filterProducts('Fren')">🛑<strong>Fren Sistemi</strong><span>Balata, disk ve daha fazlası</span></button>
-        <button class="category-card" onclick="filterProducts('Filtre')">🔧<strong>Filtreler</strong><span>Yağ, hava ve polen</span></button>
-        <button class="category-card" onclick="filterProducts('Elektrik')">💡<strong>Elektrik</strong><span>Akü, ampul ve sensörler</span></button>
-        <button class="category-card" onclick="filterProducts('Süspansiyon')">🔩<strong>Süspansiyon</strong><span>Amortisör ve parçaları</span></button>
-        <button class="category-card" onclick="filterProducts('Debriyaj')">⚙️<strong>Debriyaj</strong><span>Debriyaj setleri</span></button>
+
+
+        <button
+          class="category-card"
+          onclick="filterProducts('Motor')"
+        >
+
+          ⚙️
+
+          <strong>
+            Motor
+          </strong>
+
+          <span>
+            Motor parçaları
+          </span>
+
+        </button>
+
+
+        <button
+          class="category-card"
+          onclick="filterProducts('Fren')"
+        >
+
+          🛑
+
+          <strong>
+            Fren Sistemi
+          </strong>
+
+          <span>
+            Balata, disk ve daha fazlası
+          </span>
+
+        </button>
+
+
+        <button
+          class="category-card"
+          onclick="filterProducts('Filtre')"
+        >
+
+          🔧
+
+          <strong>
+            Filtreler
+          </strong>
+
+          <span>
+            Yağ, hava ve polen
+          </span>
+
+        </button>
+
+
+        <button
+          class="category-card"
+          onclick="filterProducts('Elektrik')"
+        >
+
+          💡
+
+          <strong>
+            Elektrik
+          </strong>
+
+          <span>
+            Akü, ampul ve sensörler
+          </span>
+
+        </button>
+
+
+        <button
+          class="category-card"
+          onclick="filterProducts('Süspansiyon')"
+        >
+
+          🔩
+
+          <strong>
+            Süspansiyon
+          </strong>
+
+          <span>
+            Amortisör ve parçaları
+          </span>
+
+        </button>
+
+
+        <button
+          class="category-card"
+          onclick="filterProducts('Debriyaj')"
+        >
+
+          ⚙️
+
+          <strong>
+            Debriyaj
+          </strong>
+
+          <span>
+            Debriyaj setleri
+          </span>
+
+        </button>
+
+
       </div>
+
     </section>
 
-    <section class="section products-section" id="urunler">
+
+    <!-- ==========================================
+         ÜRÜNLER
+         ========================================== -->
+
+    <section
+      class="section products-section"
+      id="urunler"
+    >
+
       <div class="section-title">
+
         <div>
-          <p class="eyebrow dark">ÖNE ÇIKANLAR</p>
-          <h2>Popüler ürünler</h2>
+
+          <p class="eyebrow dark">
+            ÖNE ÇIKANLAR
+          </p>
+
+          <h2>
+            Popüler ürünler
+          </h2>
+
         </div>
-        <button class="text-button" onclick="filterProducts('all')">Tümünü Göster</button>
+
+
+        <button
+          class="text-button"
+          onclick="filterProducts('all')"
+        >
+          Tümünü Göster
+        </button>
+
       </div>
 
-      <div class="product-grid" id="productGrid">
-        <article class="product" data-category="Fren">
-          <div class="product-image">🛑</div>
-          <p class="product-brand">BOSCH</p>
-          <h3>Ön Fren Balatası Seti</h3>
-          <p class="fit">Birçok model ile uyumlu</p>
-          <div class="product-bottom">
-            <strong>1.249,90 ₺</strong>
-            <button onclick="addToCart('Ön Fren Balatası Seti')">Sepete Ekle</button>
+
+      <div
+        class="product-grid"
+        id="productGrid"
+      >
+
+
+        <!-- ÜRÜN 1 -->
+
+        <article
+          class="product"
+          data-category="Fren"
+        >
+
+          <div class="product-image">
+            🛑
           </div>
+
+          <p class="product-brand">
+            BOSCH
+          </p>
+
+          <h3>
+            Ön Fren Balatası Seti
+          </h3>
+
+          <p class="fit">
+            Birçok model ile uyumlu
+          </p>
+
+
+          <div class="product-bottom">
+
+            <strong>
+              1.249,90 ₺
+            </strong>
+
+            <button
+              onclick="addToCart('Ön Fren Balatası Seti')"
+            >
+              Sepete Ekle
+            </button>
+
+          </div>
+
         </article>
 
-        <article class="product" data-category="Filtre">
-          <div class="product-image">🔧</div>
-          <p class="product-brand">MANN-FILTER</p>
-          <h3>Motor Yağ Filtresi</h3>
-          <p class="fit">Kaliteli filtrasyon</p>
-          <div class="product-bottom">
-            <strong>389,90 ₺</strong>
-            <button onclick="addToCart('Motor Yağ Filtresi')">Sepete Ekle</button>
+
+        <!-- ÜRÜN 2 -->
+
+        <article
+          class="product"
+          data-category="Filtre"
+        >
+
+          <div class="product-image">
+            🔧
           </div>
+
+          <p class="product-brand">
+            MANN-FILTER
+          </p>
+
+          <h3>
+            Motor Yağ Filtresi
+          </h3>
+
+          <p class="fit">
+            Kaliteli filtrasyon
+          </p>
+
+
+          <div class="product-bottom">
+
+            <strong>
+              389,90 ₺
+            </strong>
+
+            <button
+              onclick="addToCart('Motor Yağ Filtresi')"
+            >
+              Sepete Ekle
+            </button>
+
+          </div>
+
         </article>
 
-        <article class="product" data-category="Debriyaj">
-          <div class="product-image">⚙️</div>
-          <p class="product-brand">VALEO</p>
-          <h3>Komple Debriyaj Seti</h3>
-          <p class="fit">Uzun ömürlü performans</p>
-          <div class="product-bottom">
-            <strong>4.799,90 ₺</strong>
-            <button onclick="addToCart('Komple Debriyaj Seti')">Sepete Ekle</button>
+
+        <!-- ÜRÜN 3 -->
+
+        <article
+          class="product"
+          data-category="Debriyaj"
+        >
+
+          <div class="product-image">
+            ⚙️
           </div>
+
+          <p class="product-brand">
+            VALEO
+          </p>
+
+          <h3>
+            Komple Debriyaj Seti
+          </h3>
+
+          <p class="fit">
+            Uzun ömürlü performans
+          </p>
+
+
+          <div class="product-bottom">
+
+            <strong>
+              4.799,90 ₺
+            </strong>
+
+            <button
+              onclick="addToCart('Komple Debriyaj Seti')"
+            >
+              Sepete Ekle
+            </button>
+
+          </div>
+
         </article>
 
-        <article class="product" data-category="Elektrik">
-          <div class="product-image">💡</div>
-          <p class="product-brand">OSRAM</p>
-          <h3>LED Far Ampulü</h3>
-          <p class="fit">Çift set</p>
-          <div class="product-bottom">
-            <strong>899,90 ₺</strong>
-            <button onclick="addToCart('LED Far Ampulü')">Sepete Ekle</button>
+
+        <!-- ÜRÜN 4 -->
+
+        <article
+          class="product"
+          data-category="Elektrik"
+        >
+
+          <div class="product-image">
+            💡
           </div>
+
+          <p class="product-brand">
+            OSRAM
+          </p>
+
+          <h3>
+            LED Far Ampulü
+          </h3>
+
+          <p class="fit">
+            Çift set
+          </p>
+
+
+          <div class="product-bottom">
+
+            <strong>
+              899,90 ₺
+            </strong>
+
+            <button
+              onclick="addToCart('LED Far Ampulü')"
+            >
+              Sepete Ekle
+            </button>
+
+          </div>
+
         </article>
+
+
       </div>
+
     </section>
+
+
+    <!-- ==========================================
+         PROMO
+         ========================================== -->
 
     <section class="promo">
+
       <div>
-        <p class="eyebrow">EA TECHNIC GARAGE</p>
-        <h2>Aracınıza değer katan parçalar.</h2>
-        <p>Kaliteli ürün, doğru uyumluluk ve güvenilir hizmet.</p>
+
+        <p class="eyebrow">
+          EA TECHNIC GARAGE
+        </p>
+
+        <h2>
+          Aracınıza değer katan parçalar.
+        </h2>
+
+        <p>
+          Kaliteli ürün, doğru uyumluluk ve güvenilir hizmet.
+        </p>
+
       </div>
-      <a href="#iletisim" class="btn primary">Bize Ulaşın</a>
+
+
+      <a
+        href="#iletisim"
+        class="btn primary"
+      >
+        Bize Ulaşın
+      </a>
+
     </section>
 
-    <section class="section about" id="hakkimizda">
-      <p class="eyebrow dark">HAKKIMIZDA</p>
-      <h2>Otomotivde güvenilir çözüm ortağınız.</h2>
-      <p>
-        EA Technic Garage için bu alanı işletmenizin gerçek hikâyesi,
-        uzmanlık alanları, hizmet bölgeleri ve müşteri yaklaşımıyla
-        doldurabilirsiniz. Bu bölüm müşterinin size güvenmesini sağlar.
+
+    <!-- ==========================================
+         HAKKIMIZDA
+         ========================================== -->
+
+    <section
+      class="section about"
+      id="hakkimizda"
+    >
+
+      <p class="eyebrow dark">
+        HAKKIMIZDA
       </p>
+
+      <h2>
+        Otomotivde güvenilir çözüm ortağınız.
+      </h2>
+
+      <p>
+
+        EA Technic Garage için bu alanı işletmenizin
+        gerçek hikâyesi, uzmanlık alanları, hizmet bölgeleri
+        ve müşteri yaklaşımıyla doldurabilirsiniz.
+
+        Bu bölüm müşterinin size güvenmesini sağlar.
+
+      </p>
+
     </section>
+
   </main>
 
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+
   <footer id="iletisim">
+
     <div class="footer-grid">
+
+
       <div>
-        <img src="assets/logo.jpeg" alt="EA Technic Garage" class="footer-logo">
-        <p>Otomotiv yedek parça ve teknik çözümler.</p>
+
+        <img
+          src="assets/logo.jpeg"
+          alt="EA Technic Garage"
+          class="footer-logo"
+        >
+
+        <p>
+          Otomotiv yedek parça ve teknik çözümler.
+        </p>
+
       </div>
+
+
       <div>
-        <h3>İletişim</h3>
-        <p>📞 05xx xxx xx xx</p>
-        <p>✉ info@eatechnicgarage.com</p>
-        <p>📍 İstanbul, Türkiye</p>
+
+        <h3>
+          İletişim
+        </h3>
+
+        <p>
+          📞 05xx xxx xx xx
+        </p>
+
+        <p>
+          ✉ info@eatechnicgarage.com
+        </p>
+
+        <p>
+          📍 İstanbul, Türkiye
+        </p>
+
       </div>
+
+
       <div>
-        <h3>Hızlı Menü</h3>
-        <a href="#urunler">Ürünler</a>
-        <a href="#kategoriler">Kategoriler</a>
-        <a href="#hakkimizda">Hakkımızda</a>
+
+        <h3>
+          Hızlı Menü
+        </h3>
+
+        <a href="#urunler">
+          Ürünler
+        </a>
+
+        <a href="#kategoriler">
+          Kategoriler
+        </a>
+
+        <a href="#hakkimizda">
+          Hakkımızda
+        </a>
+
       </div>
+
+
     </div>
-    <div class="copyright">© 2026 EA Technic Garage. Tüm hakları saklıdır.</div>
+
+
+    <div class="copyright">
+
+      © 2026 EA Technic Garage.
+      Tüm hakları saklıdır.
+
+    </div>
+
   </footer>
 
-  <div id="toast" class="toast"></div>
+
+  <!-- ==========================================
+       BİLDİRİM
+       ========================================== -->
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+
   <script src="script.js"></script>
+
 </body>
 </html>
