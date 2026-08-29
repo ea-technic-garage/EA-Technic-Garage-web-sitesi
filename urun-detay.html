@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Ön Fren Balatası Seti | EA Technic Garage
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       GENEL
+    ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f6f8;
+      color: #111827;
+    }
+
+
+    /* =====================================================
+       ÜST BAR
+    ===================================================== */
+
+    .topbar {
+      background: #111827;
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .topbar-right {
+      display: flex;
+      gap: 18px;
+      color: #d1d5db;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .main-header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .header-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .brand {
+      min-width: 190px;
+      text-decoration: none;
+      color: #111827;
+    }
+
+    .brand-main {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .brand-sub {
+      color: #dc2626;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      margin-top: 3px;
+    }
+
+
+    /* =====================================================
+       ARAMA
+    ===================================================== */
+
+    .header-search {
+      flex: 1;
+      max-width: 560px;
+      display: flex;
+      height: 46px;
+    }
+
+    .header-search input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid #d1d5db;
+      border-right: 0;
+      border-radius: 6px 0 0 6px;
+      padding: 0 15px;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .header-search input:focus {
+      border-color: #dc2626;
+    }
+
+    .header-search button {
+      width: 52px;
+      border: 0;
+      border-radius: 0 6px 6px 0;
+      background: #dc2626;
+      color: #fff;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+
+    /* =====================================================
+       HEADER ACTIONS
+    ===================================================== */
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      margin-left: auto;
+    }
+
+    .header-action {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px;
+      color: #111827;
+      text-decoration: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .action-icon {
+      font-size: 22px;
+    }
+
+    .header-action small {
+      display: block;
+      color: #6b7280;
+      font-size: 10px;
+    }
+
+    .header-action strong {
+      display: block;
+      margin-top: 2px;
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       NAV
+    ===================================================== */
+
+    .main-nav {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-inner a {
+      color: #374151;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-inner a:hover {
+      color: #dc2626;
+    }
+
+
+    /* =====================================================
+       ÜRÜN SAYFASI
+    ===================================================== */
+
+    .product-detail-page {
+      padding: 45px 0 80px;
+    }
+
+    .product-detail-container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+
+    /* =====================================================
+       BREADCRUMB
+    ===================================================== */
+
+    .breadcrumb {
+      margin-bottom: 22px;
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+    .breadcrumb a {
+      color: #6b7280;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      color: #dc2626;
+    }
+
+
+    /* =====================================================
+       ANA ÜRÜN
+    ===================================================== */
+
+    .product-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 30px;
+    }
+
+
+    /* =====================================================
+       FOTOĞRAF
+    ===================================================== */
+
+    .product-gallery {
+      min-width: 0;
+    }
+
+    .main-product-image {
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f9fa;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 25px;
+    }
+
+    .product-stock-badge {
+      position: absolute;
+      z-index: 2;
+      top: 18px;
+      left: 18px;
+      padding: 7px 12px;
+      background: #16803c;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+
+    /* =====================================================
+       KÜÇÜK FOTOĞRAFLAR
+    ===================================================== */
+
+    .thumbnail-list {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .thumbnail {
+      width: 78px;
+      height: 78px;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .thumbnail.active {
+      border: 2px solid #dc2626;
+    }
+
+    .thumbnail:hover {
+      border-color: #dc2626;
+    }
+
+
+    /* =====================================================
+       ÜRÜN BİLGİLERİ
+    ===================================================== */
+
+    .product-info {
+      padding: 8px 0;
+    }
+
+    .detail-brand {
+      color: #dc2626;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      margin-bottom: 9px;
+    }
+
+    .product-info h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .product-code {
+      margin-top: 12px;
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      color: #f59e0b;
+      font-size: 15px;
+    }
+
+    .rating span {
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       FİYAT
+    ===================================================== */
+
+    .detail-price {
+      margin-top: 25px;
+      padding: 20px 0;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .detail-price strong {
+      display: block;
+      font-size: 34px;
+    }
+
+    .detail-price small {
+      display: block;
+      margin-top: 6px;
+      color: #16803c;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       AÇIKLAMA
+    ===================================================== */
+
+    .detail-description {
+      margin-top: 22px;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       UYUMLULUK
+    ===================================================== */
+
+    .compatibility-box {
+      margin-top: 22px;
+      padding: 18px;
+      border: 1px solid #e5e7eb;
+      border-radius: 7px;
+      background: #f8f9fa;
+    }
+
+    .compatibility-box h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    .compatibility-box p {
+      margin: 0;
+      color: #6b7280;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .compatibility-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .compatibility-tags span {
+      padding: 6px 9px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      color: #374151;
+      font-size: 11px;
+    }
+
+
+    /* =====================================================
+       SATIN ALMA
+    ===================================================== */
+
+    .purchase-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .quantity {
+      height: 48px;
+      display: flex;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .quantity button {
+      width: 42px;
+      border: 0;
+      background: #f3f4f6;
+      color: #111827;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .quantity button:hover {
+      background: #e5e7eb;
+    }
+
+    .quantity input {
+      width: 50px;
+      border: 0;
+      border-left: 1px solid #d1d5db;
+      border-right: 1px solid #d1d5db;
+      outline: none;
+      text-align: center;
+    }
+
+    .add-cart-button {
+      flex: 1;
+      height: 48px;
+      border: 0;
+      border-radius: 6px;
+      background: #dc2626;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .add-cart-button:hover {
+      background: #b91c1c;
+    }
+
+    .buy-now-button {
+      width: 100%;
+      height: 48px;
+      margin-top: 10px;
+      border: 1px solid #111827;
+      border-radius: 6px;
+      background: #111827;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .buy-now-button:hover {
+      background: #374151;
+    }
+
+
+    /* =====================================================
+       GÜVEN BİLGİLERİ
+    ===================================================== */
+
+    .shopping-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .shopping-info-item {
+      padding: 13px;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .shopping-info-item strong {
+      display: block;
+      font-size: 11px;
+    }
+
+    .shopping-info-item span {
+      display: block;
+      margin-top: 3px;
+      color: #6b7280;
+      font-size: 10px;
+    }
+
+
+    /* =====================================================
+       ALT BİLGİLER
+    ===================================================== */
+
+    .product-extra {
+      margin-top: 25px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .extra-header {
+      display: flex;
+      border-bottom: 1px solid #e5e7eb;
+      overflow-x: auto;
+    }
+
+    .extra-header button {
+      min-width: 150px;
+      height: 52px;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: #fff;
+      color: #6b7280;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .extra-header button.active,
+    .extra-header button:hover {
+      color: #dc2626;
+      border-bottom-color: #dc2626;
+    }
+
+    .extra-content {
+      padding: 30px;
+    }
+
+    .extra-panel {
+      display: none;
+    }
+
+    .extra-panel.active {
+      display: block;
+    }
+
+    .extra-panel h2 {
+      margin: 0 0 18px;
+      font-size: 21px;
+    }
+
+    .extra-panel p {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       TEKNİK TABLO
+    ===================================================== */
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .spec-table tr {
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .spec-table td {
+      padding: 13px 10px;
+      font-size: 13px;
+    }
+
+    .spec-table td:first-child {
+      width: 35%;
+      color: #6b7280;
+    }
+
+    .spec-table td:last-child {
+      color: #111827;
+      font-weight: 700;
+    }
+
+
+    /* =====================================================
+       UYARI
+    ===================================================== */
+
+    .fit-warning {
+      margin-top: 20px;
+      padding: 15px;
+      border-left: 4px solid #dc2626;
+      background: #fef2f2;
+      color: #7f1d1d;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    .toast {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 9999;
+      max-width: 350px;
+      padding: 15px 20px;
+      background: #111827;
+      color: #fff;
+      border-radius: 7px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: .25s;
+      font-size: 13px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* =====================================================
+       MOBİL
+    ===================================================== */
+
+    @media (max-width: 850px) {
+
+      .header-inner {
+        flex-wrap: wrap;
+        padding: 15px 0;
+      }
+
+      .header-search {
+        order: 3;
+        flex-basis: 100%;
+        max-width: none;
+      }
+
+      .product-detail {
+        grid-template-columns: 1fr;
+      }
+
+      .main-product-image {
+        height: 400px;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .topbar-inner {
+        min-height: auto;
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .topbar-right {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .header-inner {
+        width: calc(100% - 24px);
+      }
+
+      .brand {
+        min-width: 150px;
+      }
+
+      .brand-main {
+        font-size: 18px;
+      }
+
+      .header-actions {
+        margin-left: auto;
+      }
+
+      .header-action span:not(.action-icon) {
+        display: none;
+      }
+
+      .nav-inner {
+        width: calc(100% - 24px);
+        overflow-x: auto;
+        gap: 20px;
+      }
+
+      .product-detail-container {
+        width: calc(100% - 24px);
+      }
+
+      .product-detail {
+        padding: 18px;
+        gap: 25px;
+      }
+
+      .main-product-image {
+        height: 320px;
+      }
+
+      .main-product-image img {
+        padding: 15px;
+      }
+
+      .product-info h1 {
+        font-size: 27px;
+      }
+
+      .detail-price strong {
+        font-size: 28px;
+      }
+
+      .purchase-area {
+        flex-wrap: wrap;
+      }
+
+      .quantity {
+        width: 100%;
+      }
+
+      .quantity button {
+        flex: 1;
+      }
+
+      .quantity input {
+        width: 70px;
+      }
+
+      .add-cart-button {
+        flex-basis: 100%;
+      }
+
+      .shopping-info {
+        grid-template-columns: 1fr;
+      }
+
+      .extra-content {
+        padding: 20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       ÜST BAR
+  ====================================================== -->
+
+  <div class="topbar">
+
+    <div class="topbar-inner">
+
+      <div>
+        EA TECHNIC GARAGE
+      </div>
+
+      <div class="topbar-right">
+
+        <span>
+          Hızlı Kargo
+        </span>
+
+        <span>
+          Güvenli Alışveriş
+        </span>
+
+        <span>
+          Teknik Destek
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="main-header">
+
+    <div class="header-inner">
+
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <div class="brand-main">
+          EA TECHNIC
+        </div>
+
+        <div class="brand-sub">
+          GARAGE
+        </div>
+
+      </a>
+
+
+      <form
+        class="header-search"
+        onsubmit="searchProduct(event)"
+      >
+
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Parça, marka veya OEM numarası ara..."
+        >
+
+        <button type="submit">
+          🔍
+        </button>
+
+      </form>
+
+
+      <div class="header-actions">
+
+
+        <a
+          href="giris.html"
+          class="header-action"
+        >
+
+          <span class="action-icon">
+            👤
+          </span>
+
+          <span>
+
+            <small>
+              Hesabım
+            </small>
+
+            <strong>
+              Giriş Yap
+            </strong>
+
+          </span>
+
+        </a>
+
+
+        <button
+          class="header-action"
+          onclick="goToCart()"
+        >
+
+          <span class="action-icon">
+            🛒
+          </span>
+
+          <span>
+
+            <small>
+              Sepet
+            </small>
+
+            <strong>
+              <span id="cartCount">
+                0
+              </span>
+              Ürün
+            </strong>
+
+          </span>
+
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       NAV
+  ====================================================== -->
+
+  <nav class="main-nav">
+
+    <div class="nav-inner">
+
+      <a href="index.html">
+        Ana Sayfa
+      </a>
+
+      <a href="index.html#kategoriler">
+        Kategoriler
+      </a>
+
+      <a href="index.html#urunler">
+        Ürünler
+      </a>
+
+      <a href="index.html#hakkimizda">
+        Hakkımızda
+      </a>
+
+      <a href="index.html#iletisim">
+        İletişim
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =====================================================
+       ANA ÜRÜN
+  ====================================================== -->
+
+  <main class="product-detail-page">
+
+    <div class="product-detail-container">
+
+
+      <!-- BREADCRUMB -->
+
+      <div class="breadcrumb">
+
+        <a href="index.html">
+          Ana Sayfa
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="index.html#urunler">
+          Ürünler
+        </a>
+
+        &nbsp; / &nbsp;
+
+        Fren Sistemi
+
+        &nbsp; / &nbsp;
+
+        Ön Fren Balatası Seti
+
+      </div>
+
+
+      <div class="product-detail">
+
+
+        <!-- =================================================
+             GALERİ
+        ================================================== -->
+
+        <div class="product-gallery">
+
+
+          <div class="main-product-image">
+
+
+            <span class="product-stock-badge">
+              STOKTA
+            </span>
+
+
+            <img
+              id="mainProductImage"
+              src="https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH01WHCO0000.jpg"
+              alt="Bosch Ön Fren Balatası Seti"
+            >
+
+
+          </div>
+
+
+          <div class="thumbnail-list">
+
+
+            <button
+              class="thumbnail active"
+              onclick="changeImage(
+                'https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH01WHCO0000.jpg',
+                this
+              )"
+            >
+
+              <img
+                src="https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH01WHCO0000.jpg"
+                alt="Bosch fren balatası"
+              >
+
+            </button>
+
+
+            <button
+              class="thumbnail"
+              onclick="changeImage(
+                'https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH19WHCO0000.jpg',
+                this
+              )"
+            >
+
+              <img
+                src="https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH19WHCO0000.jpg"
+                alt="Bosch fren balatası yan görünüm"
+              >
+
+            </button>
+
+
+            <button
+              class="thumbnail"
+              onclick="changeImage(
+                'https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH13WHCO0000.jpg',
+                this
+              )"
+            >
+
+              <img
+                src="https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH13WHCO0000.jpg"
+                alt="Bosch fren balatası görünüm"
+              >
+
+            </button>
+
+
+            <button
+              class="thumbnail"
+              onclick="changeImage(
+                'https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH07WHCO0000.jpg',
+                this
+              )"
+            >
+
+              <img
+                src="https://spiderb.blob.core.windows.net/pim-attachment/0986494120PH07WHCO0000.jpg"
+                alt="Bosch fren balatası detay"
+              >
+
+            </button>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ÜRÜN BİLGİLERİ
+        ================================================== -->
+
+        <div class="product-info">
+
+
+          <div class="detail-brand">
+            BOSCH
+          </div>
+
+
+          <h1>
+            Ön Fren Balatası Seti
+          </h1>
+
+
+          <div class="product-code">
+            Ürün Kodu: 0986494120
+          </div>
+
+
+          <div class="rating">
+
+            ★★★★★
+
+            <span>
+              5.0 • 12 değerlendirme
+            </span>
+
+          </div>
+
+
+          <div class="detail-price">
+
+            <strong>
+              1.249,90 ₺
+            </strong>
+
+            <small>
+              ✓ Stokta mevcut
+            </small>
+
+          </div>
+
+
+          <div class="detail-description">
+
+            Yüksek kaliteli Bosch ön fren balatası seti.
+            Güvenli frenleme, düşük ses seviyesi ve uzun
+            kullanım ömrü için tasarlanmıştır.
+
+          </div>
+
+
+          <!-- UYUMLULUK -->
+
+          <div class="compatibility-box">
+
+            <h3>
+              🚗 Araç Uyumluluğu
+            </h3>
+
+            <p>
+              Satın almadan önce aracınızın marka, model
+              ve yıl bilgilerini kontrol ediniz.
+            </p>
+
+
+            <div class="compatibility-tags">
+
+              <span>
+                BMW 3 Serisi
+              </span>
+
+              <span>
+                BMW 5 Serisi
+              </span>
+
+              <span>
+                2018 - 2024
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- ADET + SEPET -->
+
+          <div class="purchase-area">
+
+
+            <div class="quantity">
+
+              <button
+                type="button"
+                onclick="changeQuantity(-1)"
+              >
+                −
+              </button>
+
+
+              <input
+                id="quantity"
+                type="number"
+                value="1"
+                min="1"
+                max="10"
+              >
+
+
+              <button
+                type="button"
+                onclick="changeQuantity(1)"
+              >
+                +
+              </button>
+
+            </div>
+
+
+            <button
+              class="add-cart-button"
+              onclick="addProductToCart()"
+            >
+              🛒 Sepete Ekle
+            </button>
+
+
+          </div>
+
+
+          <button
+            class="buy-now-button"
+            onclick="buyNow()"
+          >
+            ⚡ Hemen Al
+          </button>
+
+
+          <!-- GÜVEN -->
+
+          <div class="shopping-info">
+
+
+            <div class="shopping-info-item">
+
+              <strong>
+                🚚 Hızlı Kargo
+              </strong>
+
+              <span>
+                Güvenli gönderim
+              </span>
+
+            </div>
+
+
+            <div class="shopping-info-item">
+
+              <strong>
+                🔒 Güvenli
+              </strong>
+
+              <span>
+                Güvenli alışveriş
+              </span>
+
+            </div>
+
+
+            <div class="shopping-info-item">
+
+              <strong>
+                📞 Destek
+              </strong>
+
+              <span>
+                Teknik destek
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           ALT BİLGİLER
+      ================================================== -->
+
+      <div class="product-extra">
+
+
+        <div class="extra-header">
+
+
+          <button
+            class="active"
+            onclick="openTab('description', this)"
+          >
+            Ürün Açıklaması
+          </button>
+
+
+          <button
+            onclick="openTab('specifications', this)"
+          >
+            Teknik Özellikler
+          </button>
+
+
+          <button
+            onclick="openTab('compatibility', this)"
+          >
+            Uyumluluk
+          </button>
+
+
+          <button
+            onclick="openTab('shipping', this)"
+          >
+            Kargo & İade
+          </button>
+
+
+        </div>
+
+
+        <div class="extra-content">
+
+
+          <!-- AÇIKLAMA -->
+
+          <div
+            id="description"
+            class="extra-panel active"
+          >
+
+            <h2>
+              Ürün Açıklaması
+            </h2>
+
+            <p>
+
+              EA Technic Garage üzerinden sunulan Bosch
+              ön fren balatası seti, güvenli ve kontrollü
+              frenleme performansı için geliştirilmiştir.
+
+            </p>
+
+            <p>
+
+              Ürünün aracınıza tam olarak uyup uymadığını
+              satın alma öncesinde araç bilgilerinizi
+              kontrol ederek doğrulamanız önerilir.
+
+            </p>
+
+          </div>
+
+
+          <!-- TEKNİK ÖZELLİKLER -->
+
+          <div
+            id="specifications"
+            class="extra-panel"
+          >
+
+            <h2>
+              Teknik Özellikler
+            </h2>
+
+
+            <table class="spec-table">
+
+
+              <tr>
+
+                <td>
+                  Marka
+                </td>
+
+                <td>
+                  BOSCH
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  Ürün Numarası
+                </td>
+
+                <td>
+                  0986494120
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  Ürün Türü
+                </td>
+
+                <td>
+                  Fren Balatası
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  Montaj Konumu
+                </td>
+
+                <td>
+                  Ön Aks
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  Ürün Durumu
+                </td>
+
+                <td>
+                  Sıfır
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>
+                  Garanti
+                </td>
+
+                <td>
+                  Üretici garantisi
+                </td>
+
+              </tr>
+
+
+            </table>
+
+          </div>
+
+
+          <!-- UYUMLULUK -->
+
+          <div
+            id="compatibility"
+            class="extra-panel"
+          >
+
+            <h2>
+              Araç Uyumluluğu
+            </h2>
+
+
+            <p>
+
+              Bu ürün için gösterilen uyumluluk bilgileri
+              örnek katalog verisidir.
+
+            </p>
+
+
+            <div class="fit-warning">
+
+              ⚠️ Önemli: Satın almadan önce aracınızın
+              marka, model, motor, yıl ve mümkünse OEM
+              numarası üzerinden uyumluluk kontrolü
+              yapılmalıdır.
+
+            </div>
+
+
+          </div>
+
+
+          <!-- KARGO -->
+
+          <div
+            id="shipping"
+            class="extra-panel"
+          >
+
+            <h2>
+              Kargo & İade
+            </h2>
+
+
+            <p>
+
+              Siparişler stok ve ödeme onayından sonra
+              hazırlanır ve anlaşmalı kargo firmasıyla
+              gönderilir.
+
+            </p>
+
+
+            <p>
+
+              İade koşulları, kullanılmamış ürün ve
+              ambalaj şartlarına bağlıdır.
+
+            </p>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       TOAST
+  ====================================================== -->
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+
+    /* =====================================================
+       SEPET
+    ===================================================== */
+
+    let cart = JSON.parse(
+      localStorage.getItem("eaCart") || "[]"
+    );
+
+
+    function saveCart() {
+
+      localStorage.setItem(
+        "eaCart",
+        JSON.stringify(cart)
+      );
+
+    }
+
+
+    function updateCartCount() {
+
+      const count =
+        cart.reduce(
+          function(total, item) {
+
+            return total + item.quantity;
+
+          },
+          0
+        );
+
+
+      const element =
+        document.getElementById("cartCount");
+
+
+      if (element) {
+
+        element.textContent = count;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       ÜRÜNÜ SEPETE EKLE
+    ===================================================== */
+
+    function addProductToCart() {
+
+
+      const quantity =
+        Number(
+          document.getElementById("quantity").value
+        );
+
+
+      if (
+        !quantity ||
+        quantity < 1
+      ) {
+
+        showToast(
+          "Lütfen geçerli bir adet seçin."
+        );
+
+        return;
+
+      }
+
+
+      const product = {
+
+        id: "0986494120",
+
+        name: "Ön Fren Balatası Seti",
+
+        brand: "BOSCH",
+
+        price: 1249.90,
+
+        quantity: quantity
+
+      };
+
+
+      const existing =
+        cart.find(
+          function(item) {
+
+            return item.id === product.id;
+
+          }
+        );
+
+
+      if (existing) {
+
+        existing.quantity += quantity;
+
+      } else {
+
+        cart.push(product);
+
+      }
+
+
+      saveCart();
+
+      updateCartCount();
+
+
+      showToast(
+        product.name +
+        " (" +
+        quantity +
+        " adet) sepete eklendi."
+      );
+
+    }
+
+
+    /* =====================================================
+       ADET DEĞİŞTİR
+    ===================================================== */
+
+    function changeQuantity(amount) {
+
+
+      const input =
+        document.getElementById("quantity");
+
+
+      let value =
+        Number(input.value) + amount;
+
+
+      if (value < 1) {
+
+        value = 1;
+
+      }
+
+
+      if (value > 10) {
+
+        value = 10;
+
+      }
+
+
+      input.value = value;
+
+    }
+
+
+    /* =====================================================
+       HEMEN AL
+    ===================================================== */
+
+    function buyNow() {
+
+      addProductToCart();
+
+
+      setTimeout(
+        function() {
+
+          goToCart();
+
+        },
+        500
+      );
+
+    }
+
+
+    /* =====================================================
+       SEPET
+    ===================================================== */
+
+    function goToCart() {
+
+
+      if (cart.length === 0) {
+
+        showToast(
+          "Sepetiniz şu anda boş."
+        );
+
+        return;
+
+      }
+
+
+      let text =
+        "SEPETİNİZ\n\n";
+
+
+      let total = 0;
+
+
+      cart.forEach(
+        function(item, index) {
+
+
+          const itemTotal =
+            item.price *
+            item.quantity;
+
+
+          total += itemTotal;
+
+
+          text +=
+            (index + 1) +
+            ". " +
+            item.name +
+            " x" +
+            item.quantity +
+            "\n";
+
+
+        }
+      );
+
+
+      text +=
+        "\nToplam: " +
+        total.toLocaleString(
+          "tr-TR",
+          {
+            style: "currency",
+            currency: "TRY"
+          }
+        );
+
+
+      alert(text);
+
+    }
+
+
+    /* =====================================================
+       FOTOĞRAF DEĞİŞTİR
+    ===================================================== */
+
+    function changeImage(
+      imageUrl,
+      element
+    ) {
+
+
+      const mainImage =
+        document.getElementById(
+          "mainProductImage"
+        );
+
+
+      if (mainImage) {
+
+        mainImage.src =
+          imageUrl;
+
+      }
+
+
+      document
+        .querySelectorAll(".thumbnail")
+        .forEach(
+          function(item) {
+
+            item.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+      element.classList.add(
+        "active"
+      );
+
+    }
+
+
+    /* =====================================================
+       SEKME
+    ===================================================== */
+
+    function openTab(
+      tabId,
+      button
+    ) {
+
+
+      document
+        .querySelectorAll(".extra-panel")
+        .forEach(
+          function(panel) {
+
+            panel.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+      document
+        .querySelectorAll(".extra-header button")
+        .forEach(
+          function(btn) {
+
+            btn.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+      const selected =
+        document.getElementById(
+          tabId
+        );
+
+
+      if (selected) {
+
+        selected.classList.add(
+          "active"
+        );
+
+      }
+
+
+      button.classList.add(
+        "active"
+      );
+
+    }
+
+
+    /* =====================================================
+       ARAMA
+    ===================================================== */
+
+    function searchProduct(event) {
+
+
+      event.preventDefault();
+
+
+      const input =
+        document.getElementById(
+          "searchInput"
+        );
+
+
+      const value =
+        input.value.trim();
+
+
+      if (!value) {
+
+        showToast(
+          "Lütfen aramak istediğiniz ürünü yazın."
+        );
+
+        return;
+
+      }
+
+
+      showToast(
+        '"' +
+        value +
+        '" için arama yapılacak.'
+      );
+
+    }
+
+
+    /* =====================================================
+       BİLDİRİM
+    ===================================================== */
+
+    function showToast(text) {
+
+
+      const toast =
+        document.getElementById(
+          "toast"
+        );
+
+
+      if (!toast) {
+
+        return;
+
+      }
+
+
+      toast.textContent =
+        text;
+
+
+      toast.classList.add(
+        "show"
+      );
+
+
+      setTimeout(
+        function() {
+
+          toast.classList.remove(
+            "show"
+          );
+
+        },
+        2500
+      );
+
+    }
+
+
+    /* =====================================================
+       SAYFA BAŞLANGICI
+    ===================================================== */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        updateCartCount();
+
+      }
+    );
+
+
+  </script>
+
+
+</body>
+
+</html>
