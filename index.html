@@ -7,13 +7,12 @@
   <title>EA Technic Garage | Otomotiv Yedek Parça</title>
 
   <link rel="stylesheet" href="styles.css">
+
+  <!-- SUPABASE -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
-
-  <!-- =========================
-       ÜST BAR
-  ========================== -->
 
   <div class="topbar">
     <div>EA TECHNIC GARAGE</div>
@@ -21,50 +20,28 @@
   </div>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-
   <header class="header">
 
     <a class="logo-wrap" href="index.html">
-
       <div class="logo-text">
         EA TECHNIC
         <span>GARAGE</span>
       </div>
-
     </a>
 
 
     <nav>
-
-      <a href="#anasayfa">
-        Ana Sayfa
-      </a>
-
-      <a href="#kategoriler">
-        Kategoriler
-      </a>
-
-      <a href="#urunler">
-        Ürünler
-      </a>
-
-      <a href="#hakkimizda">
-        Hakkımızda
-      </a>
-
-      <a href="#iletisim">
-        İletişim
-      </a>
-
+      <a href="#anasayfa">Ana Sayfa</a>
+      <a href="#kategoriler">Kategoriler</a>
+      <a href="#urunler">Ürünler</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#iletisim">İletişim</a>
     </nav>
 
 
-    <!-- MÜŞTERİ HESAP BUTONLARI -->
+    <!-- HESAP ALANI -->
 
-    <div class="account-buttons">
+    <div class="account-buttons" id="accountButtons">
 
       <a href="giris.html">
         Giriş Yap
@@ -90,19 +67,11 @@
   </header>
 
 
-  <!-- =========================
-       ANA İÇERİK
-  ========================== -->
-
   <main>
-
 
     <!-- HERO -->
 
-    <section
-      class="hero"
-      id="anasayfa"
-    >
+    <section class="hero" id="anasayfa">
 
       <div class="hero-content">
 
@@ -120,7 +89,6 @@
           kolayca bulun. Aracınızı seçin, uygun ürünleri
           keşfedin ve güvenle sipariş verin.
         </p>
-
 
         <div class="hero-buttons">
 
@@ -145,10 +113,7 @@
     </section>
 
 
-
-    <!-- =========================
-         ARAÇ SEÇİCİ
-    ========================== -->
+    <!-- ARAÇ SEÇİCİ -->
 
     <section
       class="vehicle-section"
@@ -182,29 +147,12 @@
               Marka
             </option>
 
-            <option>
-              BMW
-            </option>
-
-            <option>
-              Mercedes-Benz
-            </option>
-
-            <option>
-              Volkswagen
-            </option>
-
-            <option>
-              Ford
-            </option>
-
-            <option>
-              Renault
-            </option>
-
-            <option>
-              Fiat
-            </option>
+            <option>BMW</option>
+            <option>Mercedes-Benz</option>
+            <option>Volkswagen</option>
+            <option>Ford</option>
+            <option>Renault</option>
+            <option>Fiat</option>
 
           </select>
 
@@ -215,29 +163,12 @@
               Model
             </option>
 
-            <option>
-              3 Serisi
-            </option>
-
-            <option>
-              C Serisi
-            </option>
-
-            <option>
-              Golf
-            </option>
-
-            <option>
-              Focus
-            </option>
-
-            <option>
-              Clio
-            </option>
-
-            <option>
-              Egea
-            </option>
+            <option>3 Serisi</option>
+            <option>C Serisi</option>
+            <option>Golf</option>
+            <option>Focus</option>
+            <option>Clio</option>
+            <option>Egea</option>
 
           </select>
 
@@ -279,10 +210,7 @@
     </section>
 
 
-
-    <!-- =========================
-         KATEGORİLER
-    ========================== -->
+    <!-- KATEGORİLER -->
 
     <section
       class="section"
@@ -308,21 +236,13 @@
 
       <div class="category-grid">
 
-
         <button
           class="category-card"
           onclick="filterProducts('Motor')"
         >
           ⚙️
-
-          <strong>
-            Motor
-          </strong>
-
-          <span>
-            Motor parçaları
-          </span>
-
+          <strong>Motor</strong>
+          <span>Motor parçaları</span>
         </button>
 
 
@@ -331,15 +251,8 @@
           onclick="filterProducts('Fren')"
         >
           🛑
-
-          <strong>
-            Fren Sistemi
-          </strong>
-
-          <span>
-            Balata, disk ve daha fazlası
-          </span>
-
+          <strong>Fren Sistemi</strong>
+          <span>Balata, disk ve daha fazlası</span>
         </button>
 
 
@@ -348,15 +261,8 @@
           onclick="filterProducts('Filtre')"
         >
           🔧
-
-          <strong>
-            Filtreler
-          </strong>
-
-          <span>
-            Yağ, hava ve polen
-          </span>
-
+          <strong>Filtreler</strong>
+          <span>Yağ, hava ve polen</span>
         </button>
 
 
@@ -365,15 +271,8 @@
           onclick="filterProducts('Elektrik')"
         >
           💡
-
-          <strong>
-            Elektrik
-          </strong>
-
-          <span>
-            Akü, ampul ve sensörler
-          </span>
-
+          <strong>Elektrik</strong>
+          <span>Akü, ampul ve sensörler</span>
         </button>
 
 
@@ -382,15 +281,8 @@
           onclick="filterProducts('Süspansiyon')"
         >
           🔩
-
-          <strong>
-            Süspansiyon
-          </strong>
-
-          <span>
-            Amortisör ve parçaları
-          </span>
-
+          <strong>Süspansiyon</strong>
+          <span>Amortisör ve parçaları</span>
         </button>
 
 
@@ -399,27 +291,16 @@
           onclick="filterProducts('Debriyaj')"
         >
           ⚙️
-
-          <strong>
-            Debriyaj
-          </strong>
-
-          <span>
-            Debriyaj setleri
-          </span>
-
+          <strong>Debriyaj</strong>
+          <span>Debriyaj setleri</span>
         </button>
-
 
       </div>
 
     </section>
 
 
-
-    <!-- =========================
-         ÜRÜNLER
-    ========================== -->
+    <!-- ÜRÜNLER -->
 
     <section
       class="section products-section"
@@ -456,8 +337,6 @@
         id="productGrid"
       >
 
-
-        <!-- ÜRÜN 1 -->
 
         <article
           class="product"
@@ -497,9 +376,6 @@
         </article>
 
 
-
-        <!-- ÜRÜN 2 -->
-
         <article
           class="product"
           data-category="Filtre"
@@ -537,9 +413,6 @@
 
         </article>
 
-
-
-        <!-- ÜRÜN 3 -->
 
         <article
           class="product"
@@ -579,9 +452,6 @@
         </article>
 
 
-
-        <!-- ÜRÜN 4 -->
-
         <article
           class="product"
           data-category="Elektrik"
@@ -619,16 +489,12 @@
 
         </article>
 
-
       </div>
 
     </section>
 
 
-
-    <!-- =========================
-         PROMO
-    ========================== -->
+    <!-- PROMO -->
 
     <section class="promo">
 
@@ -659,10 +525,7 @@
     </section>
 
 
-
-    <!-- =========================
-         HAKKIMIZDA
-    ========================== -->
+    <!-- HAKKIMIZDA -->
 
     <section
       class="section about"
@@ -678,10 +541,10 @@
       </h2>
 
       <p>
-        EA Technic Garage için bu alanı işletmenizin
-        gerçek hikâyesi, uzmanlık alanları, hizmet
-        bölgeleri ve müşteri yaklaşımıyla doldurabilirsiniz.
-        Bu bölüm müşterinin size güvenmesini sağlar.
+        EA Technic Garage olarak otomotiv yedek parça
+        alanında kaliteli ürünleri, doğru uyumluluk bilgisi
+        ve güvenilir hizmet anlayışıyla müşterilerimize
+        sunmayı hedefliyoruz.
       </p>
 
     </section>
@@ -689,15 +552,11 @@
   </main>
 
 
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer id="iletisim">
 
     <div class="footer-grid">
-
 
       <div>
 
@@ -719,7 +578,7 @@
         </h3>
 
         <p>
-          📞 05xx xxx xx xx
+          📞 05353293288
         </p>
 
         <p>
@@ -727,7 +586,7 @@
         </p>
 
         <p>
-          📍 İstanbul, Türkiye
+          📍 Bursa, Türkiye
         </p>
 
       </div>
@@ -751,16 +610,7 @@
           Hakkımızda
         </a>
 
-        <a href="giris.html">
-          Giriş Yap
-        </a>
-
-        <a href="kayit.html">
-          Kayıt Ol
-        </a>
-
       </div>
-
 
     </div>
 
@@ -772,16 +622,11 @@
   </footer>
 
 
-
-  <!-- TOAST -->
-
   <div
     id="toast"
     class="toast"
   ></div>
 
-
-  <!-- JAVASCRIPT -->
 
   <script src="script.js"></script>
 
