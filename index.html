@@ -1,109 +1,249 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>EA Technic Garage | Otomotiv Yedek Parça</title>
+  <title>EA Technic Garage | Online Yedek Parça</title>
+
+  <meta
+    name="description"
+    content="EA Technic Garage - Otomotiv yedek parça, araç uyumlu ürünler ve güvenli alışveriş."
+  >
 
   <link rel="stylesheet" href="styles.css">
-
-  <!-- SUPABASE -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
+  <!-- =====================================================
+       ÜST BİLGİ BAR
+  ====================================================== -->
+
   <div class="topbar">
-    <div>EA TECHNIC GARAGE</div>
-    <div>Hızlı Kargo • Güvenli Alışveriş • Teknik Destek</div>
+    <div class="container topbar-inner">
+
+      <span>EA TECHNIC GARAGE</span>
+
+      <div class="topbar-right">
+        <span>✓ Güvenli Alışveriş</span>
+        <span>✓ Hızlı Kargo</span>
+        <span>✓ Teknik Destek</span>
+      </div>
+
+    </div>
   </div>
 
 
-  <header class="header">
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-    <a class="logo-wrap" href="index.html">
-      <div class="logo-text">
-        EA TECHNIC
-        <span>GARAGE</span>
+  <header class="main-header">
+
+    <div class="container header-inner">
+
+      <!-- LOGO -->
+
+      <a href="index.html" class="brand">
+
+        <div class="brand-main">
+          EA TECHNIC
+        </div>
+
+        <div class="brand-sub">
+          GARAGE
+        </div>
+
+      </a>
+
+
+      <!-- ANA ARAMA -->
+
+      <div class="header-search">
+
+        <input
+          type="search"
+          id="mainSearch"
+          placeholder="Yedek parça, marka veya parça numarası ara..."
+          autocomplete="off"
+        >
+
+        <button
+          type="button"
+          onclick="searchProducts()"
+          aria-label="Ara"
+        >
+          🔍
+        </button>
+
       </div>
-    </a>
 
 
-    <nav>
-      <a href="#anasayfa">Ana Sayfa</a>
-      <a href="#kategoriler">Kategoriler</a>
-      <a href="#urunler">Ürünler</a>
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#iletisim">İletişim</a>
-    </nav>
+      <!-- HESAP -->
+
+      <div class="header-actions">
+
+        <a href="giris.html" id="accountButton" class="header-action">
+          <span class="action-icon">👤</span>
+
+          <span>
+            <small>Hesabım</small>
+            <strong>Giriş Yap</strong>
+          </span>
+        </a>
 
 
-    <!-- HESAP ALANI -->
+        <!-- SEPET -->
 
-    <div class="account-buttons" id="accountButtons">
+        <button
+          type="button"
+          class="header-action cart-header"
+          onclick="showCart()"
+        >
 
-      <a href="giris.html">
-        Giriş Yap
-      </a>
+          <span class="action-icon">🛒</span>
 
-      <a href="kayit.html">
-        Kayıt Ol
-      </a>
+          <span>
+            <small>Sepetim</small>
+            <strong>
+              <span id="cartCount">0</span> Ürün
+            </strong>
+          </span>
+
+        </button>
+
+      </div>
 
     </div>
-
-
-    <!-- SEPET -->
-
-    <button
-      class="cart-button"
-      onclick="showCart()"
-    >
-      🛒 Sepet
-      <span id="cartCount">0</span>
-    </button>
 
   </header>
 
 
+  <!-- =====================================================
+       ANA MENÜ
+  ====================================================== -->
+
+  <nav class="main-nav">
+
+    <div class="container nav-inner">
+
+      <a href="#urunler">
+        TÜM ÜRÜNLER
+      </a>
+
+      <a href="#kategoriler">
+        KATEGORİLER
+      </a>
+
+      <a href="#markalar">
+        MARKALAR
+      </a>
+
+      <a href="#arac-bul">
+        ARACIMA UYGUN PARÇA
+      </a>
+
+      <a href="#kampanyalar">
+        KAMPANYALAR
+      </a>
+
+      <a href="#hakkimizda">
+        HAKKIMIZDA
+      </a>
+
+      <a href="#iletisim">
+        İLETİŞİM
+      </a>
+
+    </div>
+
+  </nav>
+
+
   <main>
 
-    <!-- HERO -->
 
-    <section class="hero" id="anasayfa">
+    <!-- =====================================================
+         HERO / ANA ARAMA
+    ====================================================== -->
 
-      <div class="hero-content">
+    <section class="hero-shop">
 
-        <p class="eyebrow">
-          PROFESYONEL OTOMOTİV ÇÖZÜMLERİ
-        </p>
+      <div class="container hero-inner">
 
-        <h1>
-          Aracınız için
-          <span>doğru parça.</span>
-        </h1>
+        <div class="hero-copy">
 
-        <p class="hero-text">
-          EA Technic Garage ile kaliteli yedek parçaları
-          kolayca bulun. Aracınızı seçin, uygun ürünleri
-          keşfedin ve güvenle sipariş verin.
-        </p>
+          <span class="hero-label">
+            EA TECHNIC GARAGE
+          </span>
 
-        <div class="hero-buttons">
+          <h1>
+            Aracınız için
+            <strong>doğru yedek parçayı</strong>
+            kolayca bulun.
+          </h1>
+
+          <p>
+            Marka, model ve araç bilgilerinizi seçin;
+            aracınıza uygun parçaları hızlıca keşfedin.
+          </p>
+
+
+          <div class="hero-search">
+
+            <input
+              type="search"
+              id="heroSearch"
+              placeholder="Parça adı veya OEM numarası..."
+            >
+
+            <button
+              type="button"
+              onclick="searchProductsFromHero()"
+            >
+              PARÇA ARA
+            </button>
+
+          </div>
+
+
+          <div class="hero-links">
+
+            <a href="#arac-bul">
+              🚗 Aracımı seçerek ara
+            </a>
+
+            <a href="#sasi-ara">
+              🔢 Şasi numarası ile ara
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="hero-card-icon">
+            🚘
+          </div>
+
+          <h2>
+            Aracınıza uygun parçayı bulun
+          </h2>
+
+          <p>
+            Marka ve model bilgilerinizi seçerek
+            uyumlu ürünleri görüntüleyin.
+          </p>
 
           <a
-            href="#arac-sec"
-            class="btn primary"
+            href="#arac-bul"
+            class="hero-card-button"
           >
-            Aracıma Uygun Parçayı Bul
-          </a>
-
-          <a
-            href="#urunler"
-            class="btn secondary"
-          >
-            Ürünleri İncele
+            Araç Seç
           </a>
 
         </div>
@@ -113,46 +253,191 @@
     </section>
 
 
-    <!-- ARAÇ SEÇİCİ -->
+    <!-- =====================================================
+         HIZLI GÜVEN BİLGİLERİ
+    ====================================================== -->
+
+    <section class="trust-section">
+
+      <div class="container trust-grid">
+
+        <div class="trust-item">
+
+          <div class="trust-icon">
+            🔒
+          </div>
+
+          <div>
+            <strong>
+              Güvenli Alışveriş
+            </strong>
+
+            <span>
+              Güvenli ödeme altyapısı
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <div class="trust-icon">
+            🚚
+          </div>
+
+          <div>
+            <strong>
+              Hızlı Kargo
+            </strong>
+
+            <span>
+              Siparişlerinizi hızlı gönderiyoruz
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <div class="trust-icon">
+            ⚙️
+          </div>
+
+          <div>
+            <strong>
+              Doğru Uyumluluk
+            </strong>
+
+            <span>
+              Aracınıza uygun parçaları bulun
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <div class="trust-icon">
+            📞
+          </div>
+
+          <div>
+            <strong>
+              Teknik Destek
+            </strong>
+
+            <span>
+              Parça seçiminde yanınızdayız
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ARAÇ BUL
+    ====================================================== -->
 
     <section
       class="vehicle-section"
-      id="arac-sec"
+      id="arac-bul"
     >
 
-      <div class="vehicle-card">
+      <div class="container">
 
-        <div>
+        <div class="section-heading centered">
 
-          <p class="eyebrow dark">
+          <span>
             ARAÇ SEÇİCİ
-          </p>
+          </span>
 
           <h2>
-            Aracınızı seçin
+            Aracınıza uygun parçaları bulun
           </h2>
 
           <p>
-            Size uygun yedek parçaları daha hızlı bulalım.
+            Aracınızın bilgilerini seçin ve uygun ürünleri
+            daha hızlı görüntüleyin.
           </p>
 
         </div>
 
 
-        <div class="vehicle-form">
+        <div class="vehicle-box">
+
+          <div class="vehicle-step">
+            <small>1</small>
+            <span>Marka</span>
+          </div>
 
           <select id="brand">
 
             <option value="">
-              Marka
+              Marka seçiniz
             </option>
 
-            <option>BMW</option>
-            <option>Mercedes-Benz</option>
-            <option>Volkswagen</option>
-            <option>Ford</option>
-            <option>Renault</option>
-            <option>Fiat</option>
+            <option value="BMW">
+              BMW
+            </option>
+
+            <option value="Mercedes-Benz">
+              Mercedes-Benz
+            </option>
+
+            <option value="Volkswagen">
+              Volkswagen
+            </option>
+
+            <option value="Audi">
+              Audi
+            </option>
+
+            <option value="Renault">
+              Renault
+            </option>
+
+            <option value="Fiat">
+              Fiat
+            </option>
+
+            <option value="Ford">
+              Ford
+            </option>
+
+            <option value="Peugeot">
+              Peugeot
+            </option>
+
+            <option value="Citroën">
+              Citroën
+            </option>
+
+            <option value="Toyota">
+              Toyota
+            </option>
+
+            <option value="Opel">
+              Opel
+            </option>
+
+            <option value="Hyundai">
+              Hyundai
+            </option>
+
+            <option value="Kia">
+              Kia
+            </option>
+
+            <option value="Volvo">
+              Volvo
+            </option>
 
           </select>
 
@@ -160,15 +445,60 @@
           <select id="model">
 
             <option value="">
-              Model
+              Model seçiniz
             </option>
 
-            <option>3 Serisi</option>
-            <option>C Serisi</option>
-            <option>Golf</option>
-            <option>Focus</option>
-            <option>Clio</option>
-            <option>Egea</option>
+            <option>
+              3 Serisi
+            </option>
+
+            <option>
+              5 Serisi
+            </option>
+
+            <option>
+              C Serisi
+            </option>
+
+            <option>
+              E Serisi
+            </option>
+
+            <option>
+              Golf
+            </option>
+
+            <option>
+              Passat
+            </option>
+
+            <option>
+              A3
+            </option>
+
+            <option>
+              A4
+            </option>
+
+            <option>
+              Clio
+            </option>
+
+            <option>
+              Megane
+            </option>
+
+            <option>
+              Egea
+            </option>
+
+            <option>
+              Focus
+            </option>
+
+            <option>
+              Astra
+            </option>
 
           </select>
 
@@ -176,7 +506,7 @@
           <select id="year">
 
             <option value="">
-              Yıl
+              Yıl seçiniz
             </option>
 
             <option>2026</option>
@@ -186,15 +516,58 @@
             <option>2022</option>
             <option>2021</option>
             <option>2020</option>
+            <option>2019</option>
+            <option>2018</option>
+            <option>2017</option>
+            <option>2016</option>
+            <option>2015</option>
+            <option>2014</option>
+            <option>2013</option>
+            <option>2012</option>
+            <option>2011</option>
+            <option>2010</option>
+
+          </select>
+
+
+          <select id="engine">
+
+            <option value="">
+              Motor seçiniz
+            </option>
+
+            <option>
+              1.2 Benzin
+            </option>
+
+            <option>
+              1.4 Benzin
+            </option>
+
+            <option>
+              1.5 Dizel
+            </option>
+
+            <option>
+              1.6 Dizel
+            </option>
+
+            <option>
+              2.0 Dizel
+            </option>
+
+            <option>
+              2.0 Benzin
+            </option>
 
           </select>
 
 
           <button
-            class="btn primary"
+            type="button"
             onclick="findParts()"
           >
-            Parçaları Bul
+            PARÇALARI BUL
           </button>
 
         </div>
@@ -202,7 +575,7 @@
 
         <div
           id="vehicleMessage"
-          class="message"
+          class="vehicle-message"
         ></div>
 
       </div>
@@ -210,384 +583,892 @@
     </section>
 
 
-    <!-- KATEGORİLER -->
+    <!-- =====================================================
+         ŞASİ NUMARASI
+    ====================================================== -->
+
+    <section
+      class="vin-section"
+      id="sasi-ara"
+    >
+
+      <div class="container">
+
+        <div class="vin-box">
+
+          <div>
+
+            <span class="section-label">
+              HIZLI PARÇA ARAMA
+            </span>
+
+            <h2>
+              Şasi / VIN numarası ile ara
+            </h2>
+
+            <p>
+              Aracınızın şasi numarasını girerek
+              uygun parça konusunda destek alın.
+            </p>
+
+          </div>
+
+
+          <div class="vin-form">
+
+            <input
+              type="text"
+              id="vinNumber"
+              maxlength="17"
+              placeholder="17 haneli şasi numarası"
+            >
+
+            <button
+              type="button"
+              onclick="searchVin()"
+            >
+              ARA
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         KATEGORİLER
+    ====================================================== -->
 
     <section
       class="section"
       id="kategoriler"
     >
 
-      <div class="section-title">
+      <div class="container">
 
-        <div>
+        <div class="section-heading">
 
-          <p class="eyebrow dark">
-            KATEGORİLER
-          </p>
+          <div>
 
-          <h2>
-            İhtiyacınız olan parçayı bulun
-          </h2>
+            <span>
+              KATEGORİLER
+            </span>
+
+            <h2>
+              İhtiyacınız olan parçayı bulun
+            </h2>
+
+          </div>
+
+          <a href="#urunler">
+            Tüm ürünleri gör →
+          </a>
 
         </div>
 
-      </div>
+
+        <div class="category-grid">
 
 
-      <div class="category-grid">
+          <button
+            class="category-card"
+            onclick="filterProducts('Motor')"
+          >
 
-        <button
-          class="category-card"
-          onclick="filterProducts('Motor')"
-        >
-          ⚙️
-          <strong>Motor</strong>
-          <span>Motor parçaları</span>
-        </button>
+            <div class="category-icon">
+              ⚙️
+            </div>
 
+            <strong>
+              Motor
+            </strong>
 
-        <button
-          class="category-card"
-          onclick="filterProducts('Fren')"
-        >
-          🛑
-          <strong>Fren Sistemi</strong>
-          <span>Balata, disk ve daha fazlası</span>
-        </button>
+            <span>
+              Motor parçaları
+            </span>
+
+          </button>
 
 
-        <button
-          class="category-card"
-          onclick="filterProducts('Filtre')"
-        >
-          🔧
-          <strong>Filtreler</strong>
-          <span>Yağ, hava ve polen</span>
-        </button>
+          <button
+            class="category-card"
+            onclick="filterProducts('Fren')"
+          >
+
+            <div class="category-icon">
+              🛑
+            </div>
+
+            <strong>
+              Fren Sistemi
+            </strong>
+
+            <span>
+              Balata, disk ve fren parçaları
+            </span>
+
+          </button>
 
 
-        <button
-          class="category-card"
-          onclick="filterProducts('Elektrik')"
-        >
-          💡
-          <strong>Elektrik</strong>
-          <span>Akü, ampul ve sensörler</span>
-        </button>
+          <button
+            class="category-card"
+            onclick="filterProducts('Filtre')"
+          >
+
+            <div class="category-icon">
+              🔧
+            </div>
+
+            <strong>
+              Filtreler
+            </strong>
+
+            <span>
+              Yağ, hava ve polen filtreleri
+            </span>
+
+          </button>
 
 
-        <button
-          class="category-card"
-          onclick="filterProducts('Süspansiyon')"
-        >
-          🔩
-          <strong>Süspansiyon</strong>
-          <span>Amortisör ve parçaları</span>
-        </button>
+          <button
+            class="category-card"
+            onclick="filterProducts('Elektrik')"
+          >
+
+            <div class="category-icon">
+              💡
+            </div>
+
+            <strong>
+              Elektrik
+            </strong>
+
+            <span>
+              Akü, ampul ve sensörler
+            </span>
+
+          </button>
 
 
-        <button
-          class="category-card"
-          onclick="filterProducts('Debriyaj')"
-        >
-          ⚙️
-          <strong>Debriyaj</strong>
-          <span>Debriyaj setleri</span>
-        </button>
+          <button
+            class="category-card"
+            onclick="filterProducts('Süspansiyon')"
+          >
+
+            <div class="category-icon">
+              🔩
+            </div>
+
+            <strong>
+              Süspansiyon
+            </strong>
+
+            <span>
+              Amortisör ve yürüyen aksam
+            </span>
+
+          </button>
+
+
+          <button
+            class="category-card"
+            onclick="filterProducts('Debriyaj')"
+          >
+
+            <div class="category-icon">
+              ⚙️
+            </div>
+
+            <strong>
+              Debriyaj
+            </strong>
+
+            <span>
+              Debriyaj setleri ve parçaları
+            </span>
+
+          </button>
+
+
+          <button
+            class="category-card"
+            onclick="filterProducts('Soğutma')"
+          >
+
+            <div class="category-icon">
+              ❄️
+            </div>
+
+            <strong>
+              Soğutma
+            </strong>
+
+            <span>
+              Radyatör ve soğutma sistemi
+            </span>
+
+          </button>
+
+
+          <button
+            class="category-card"
+            onclick="filterProducts('Aksesuar')"
+          >
+
+            <div class="category-icon">
+              🚗
+            </div>
+
+            <strong>
+              Aksesuar
+            </strong>
+
+            <span>
+              Araç aksesuarları
+            </span>
+
+          </button>
+
+        </div>
 
       </div>
 
     </section>
 
 
-    <!-- ÜRÜNLER -->
+    <!-- =====================================================
+         ÜRÜNLER
+    ====================================================== -->
 
     <section
       class="section products-section"
       id="urunler"
     >
 
-      <div class="section-title">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span>
+              ÖNE ÇIKAN ÜRÜNLER
+            </span>
+
+            <h2>
+              Popüler yedek parçalar
+            </h2>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="outline-button"
+            onclick="filterProducts('all')"
+          >
+            Tümünü Göster
+          </button>
+
+        </div>
+
+
+        <div
+          class="product-grid"
+          id="productGrid"
+        >
+
+
+          <!-- ÜRÜN 1 -->
+
+          <article
+            class="product-card"
+            data-category="Fren"
+          >
+
+            <div class="product-image">
+              🛑
+
+              <span class="stock-badge">
+                Stokta
+              </span>
+
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-brand">
+                BOSCH
+              </span>
+
+              <h3>
+                Ön Fren Balatası Seti
+              </h3>
+
+              <p>
+                Birçok model ile uyumlu
+              </p>
+
+              <div class="product-meta">
+
+                <span>
+                  OEM uyumlu
+                </span>
+
+                <span>
+                  ✓ Stokta
+                </span>
+
+              </div>
+
+              <div class="product-bottom">
+
+                <strong>
+                  1.249,90 ₺
+                </strong>
+
+                <button
+                  type="button"
+                  onclick="addToCart('Ön Fren Balatası Seti', 1249.90)"
+                >
+                  Sepete Ekle
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ÜRÜN 2 -->
+
+          <article
+            class="product-card"
+            data-category="Filtre"
+          >
+
+            <div class="product-image">
+              🔧
+
+              <span class="stock-badge">
+                Stokta
+              </span>
+
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-brand">
+                MANN-FILTER
+              </span>
+
+              <h3>
+                Motor Yağ Filtresi
+              </h3>
+
+              <p>
+                Yüksek kaliteli filtrasyon
+              </p>
+
+              <div class="product-meta">
+
+                <span>
+                  OEM uyumlu
+                </span>
+
+                <span>
+                  ✓ Stokta
+                </span>
+
+              </div>
+
+              <div class="product-bottom">
+
+                <strong>
+                  389,90 ₺
+                </strong>
+
+                <button
+                  type="button"
+                  onclick="addToCart('Motor Yağ Filtresi', 389.90)"
+                >
+                  Sepete Ekle
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ÜRÜN 3 -->
+
+          <article
+            class="product-card"
+            data-category="Debriyaj"
+          >
+
+            <div class="product-image">
+              ⚙️
+
+              <span class="stock-badge">
+                Stokta
+              </span>
+
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-brand">
+                VALEO
+              </span>
+
+              <h3>
+                Komple Debriyaj Seti
+              </h3>
+
+              <p>
+                Uzun ömürlü performans
+              </p>
+
+              <div class="product-meta">
+
+                <span>
+                  OEM uyumlu
+                </span>
+
+                <span>
+                  ✓ Stokta
+                </span>
+
+              </div>
+
+              <div class="product-bottom">
+
+                <strong>
+                  4.799,90 ₺
+                </strong>
+
+                <button
+                  type="button"
+                  onclick="addToCart('Komple Debriyaj Seti', 4799.90)"
+                >
+                  Sepete Ekle
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ÜRÜN 4 -->
+
+          <article
+            class="product-card"
+            data-category="Elektrik"
+          >
+
+            <div class="product-image">
+              💡
+
+              <span class="stock-badge">
+                Stokta
+              </span>
+
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-brand">
+                OSRAM
+              </span>
+
+              <h3>
+                LED Far Ampulü
+              </h3>
+
+              <p>
+                Çift set
+              </p>
+
+              <div class="product-meta">
+
+                <span>
+                  12V
+                </span>
+
+                <span>
+                  ✓ Stokta
+                </span>
+
+              </div>
+
+              <div class="product-bottom">
+
+                <strong>
+                  899,90 ₺
+                </strong>
+
+                <button
+                  type="button"
+                  onclick="addToCart('LED Far Ampulü', 899.90)"
+                >
+                  Sepete Ekle
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ÜRÜN 5 -->
+
+          <article
+            class="product-card"
+            data-category="Motor"
+          >
+
+            <div class="product-image">
+              ⚙️
+
+              <span class="stock-badge">
+                Stokta
+              </span>
+
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-brand">
+                FEBI
+              </span>
+
+              <h3>
+                Motor Takozu
+              </h3>
+
+              <p>
+                Titreşim azaltıcı yapı
+              </p>
+
+              <div class="product-meta">
+
+                <span>
+                  OEM uyumlu
+                </span>
+
+                <span>
+                  ✓ Stokta
+                </span>
+
+              </div>
+
+              <div class="product-bottom">
+
+                <strong>
+                  1.899,90 ₺
+                </strong>
+
+                <button
+                  type="button"
+                  onclick="addToCart('Motor Takozu', 1899.90)"
+                >
+                  Sepete Ekle
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ÜRÜN 6 -->
+
+          <article
+            class="product-card"
+            data-category="Süspansiyon"
+          >
+
+            <div class="product-image">
+              🔩
+
+              <span class="stock-badge">
+                Stokta
+              </span>
+
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-brand">
+                SACHS
+              </span>
+
+              <h3>
+                Ön Amortisör
+              </h3>
+
+              <p>
+                Yüksek dayanıklılık
+              </p>
+
+              <div class="product-meta">
+
+                <span>
+                  OEM uyumlu
+                </span>
+
+                <span>
+                  ✓ Stokta
+                </span>
+
+              </div>
+
+              <div class="product-bottom">
+
+                <strong>
+                  2.649,90 ₺
+                </strong>
+
+                <button
+                  type="button"
+                  onclick="addToCart('Ön Amortisör', 2649.90)"
+                >
+                  Sepete Ekle
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MARKALAR
+    ====================================================== -->
+
+    <section
+      class="brands-section"
+      id="markalar"
+    >
+
+      <div class="container">
+
+        <div class="section-heading centered">
+
+          <span>
+            MARKALAR
+          </span>
+
+          <h2>
+            Güvenilir markalar
+          </h2>
+
+          <p>
+            Kaliteli ve bilinen üreticilerin ürünlerini
+            EA Technic Garage güvencesiyle keşfedin.
+          </p>
+
+        </div>
+
+
+        <div class="brand-grid">
+
+          <button onclick="searchBrand('BOSCH')">
+            BOSCH
+          </button>
+
+          <button onclick="searchBrand('MANN-FILTER')">
+            MANN-FILTER
+          </button>
+
+          <button onclick="searchBrand('VALEO')">
+            VALEO
+          </button>
+
+          <button onclick="searchBrand('SACHS')">
+            SACHS
+          </button>
+
+          <button onclick="searchBrand('FEBI')">
+            FEBI
+          </button>
+
+          <button onclick="searchBrand('OSRAM')">
+            OSRAM
+          </button>
+
+          <button onclick="searchBrand('MAHLE')">
+            MAHLE
+          </button>
+
+          <button onclick="searchBrand('NGK')">
+            NGK
+          </button>
+
+          <button onclick="searchBrand('SKF')">
+            SKF
+          </button>
+
+          <button onclick="searchBrand('CONTINENTAL')">
+            CONTINENTAL
+          </button>
+
+          <button onclick="searchBrand('LUK')">
+            LUK
+          </button>
+
+          <button onclick="searchBrand('INA')">
+            INA
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         KAMPANYA
+    ====================================================== -->
+
+    <section
+      class="campaign-section"
+      id="kampanyalar"
+    >
+
+      <div class="container">
+
+        <div class="campaign-box">
+
+          <div>
+
+            <span>
+              EA TECHNIC GARAGE
+            </span>
+
+            <h2>
+              Aracınızın bakımını
+              doğru parçalarla yapın.
+            </h2>
+
+            <p>
+              Kaliteli ürünler, doğru uyumluluk
+              ve güvenilir alışveriş deneyimi.
+            </p>
+
+            <a
+              href="#urunler"
+              class="campaign-button"
+            >
+              Ürünleri İncele
+            </a>
+
+          </div>
+
+
+          <div class="campaign-icon">
+            🚗
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HAKKIMIZDA
+    ====================================================== -->
+
+    <section
+      class="about-section"
+      id="hakkimizda"
+    >
+
+      <div class="container about-grid">
 
         <div>
 
-          <p class="eyebrow dark">
-            ÖNE ÇIKANLAR
-          </p>
+          <span class="section-label">
+            EA TECHNIC GARAGE
+          </span>
 
           <h2>
-            Popüler ürünler
+            Otomotiv yedek parçada
+            güvenilir çözüm ortağınız.
           </h2>
 
         </div>
 
 
-        <button
-          class="text-button"
-          onclick="filterProducts('all')"
-        >
-          Tümünü Göster
-        </button>
+        <div>
+
+          <p>
+            EA Technic Garage olarak otomotiv yedek parça
+            ihtiyaçlarınızı kolay, hızlı ve güvenilir şekilde
+            karşılamayı hedefliyoruz.
+          </p>
+
+          <p>
+            Aracınıza uygun parçayı bulmanızdan siparişinizin
+            teslim edilmesine kadar alışveriş deneyiminizin
+            her aşamasında yanınızdayız.
+          </p>
+
+        </div>
 
       </div>
-
-
-      <div
-        class="product-grid"
-        id="productGrid"
-      >
-
-
-        <article
-          class="product"
-          data-category="Fren"
-        >
-
-          <div class="product-image">
-            🛑
-          </div>
-
-          <p class="product-brand">
-            BOSCH
-          </p>
-
-          <h3>
-            Ön Fren Balatası Seti
-          </h3>
-
-          <p class="fit">
-            Birçok model ile uyumlu
-          </p>
-
-          <div class="product-bottom">
-
-            <strong>
-              1.249,90 ₺
-            </strong>
-
-            <button
-              onclick="addToCart('Ön Fren Balatası Seti')"
-            >
-              Sepete Ekle
-            </button>
-
-          </div>
-
-        </article>
-
-
-        <article
-          class="product"
-          data-category="Filtre"
-        >
-
-          <div class="product-image">
-            🔧
-          </div>
-
-          <p class="product-brand">
-            MANN-FILTER
-          </p>
-
-          <h3>
-            Motor Yağ Filtresi
-          </h3>
-
-          <p class="fit">
-            Kaliteli filtrasyon
-          </p>
-
-          <div class="product-bottom">
-
-            <strong>
-              389,90 ₺
-            </strong>
-
-            <button
-              onclick="addToCart('Motor Yağ Filtresi')"
-            >
-              Sepete Ekle
-            </button>
-
-          </div>
-
-        </article>
-
-
-        <article
-          class="product"
-          data-category="Debriyaj"
-        >
-
-          <div class="product-image">
-            ⚙️
-          </div>
-
-          <p class="product-brand">
-            VALEO
-          </p>
-
-          <h3>
-            Komple Debriyaj Seti
-          </h3>
-
-          <p class="fit">
-            Uzun ömürlü performans
-          </p>
-
-          <div class="product-bottom">
-
-            <strong>
-              4.799,90 ₺
-            </strong>
-
-            <button
-              onclick="addToCart('Komple Debriyaj Seti')"
-            >
-              Sepete Ekle
-            </button>
-
-          </div>
-
-        </article>
-
-
-        <article
-          class="product"
-          data-category="Elektrik"
-        >
-
-          <div class="product-image">
-            💡
-          </div>
-
-          <p class="product-brand">
-            OSRAM
-          </p>
-
-          <h3>
-            LED Far Ampulü
-          </h3>
-
-          <p class="fit">
-            Çift set
-          </p>
-
-          <div class="product-bottom">
-
-            <strong>
-              899,90 ₺
-            </strong>
-
-            <button
-              onclick="addToCart('LED Far Ampulü')"
-            >
-              Sepete Ekle
-            </button>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- PROMO -->
-
-    <section class="promo">
-
-      <div>
-
-        <p class="eyebrow">
-          EA TECHNIC GARAGE
-        </p>
-
-        <h2>
-          Aracınıza değer katan parçalar.
-        </h2>
-
-        <p>
-          Kaliteli ürün, doğru uyumluluk ve güvenilir hizmet.
-        </p>
-
-      </div>
-
-
-      <a
-        href="#iletisim"
-        class="btn primary"
-      >
-        Bize Ulaşın
-      </a>
-
-    </section>
-
-
-    <!-- HAKKIMIZDA -->
-
-    <section
-      class="section about"
-      id="hakkimizda"
-    >
-
-      <p class="eyebrow dark">
-        HAKKIMIZDA
-      </p>
-
-      <h2>
-        Otomotivde güvenilir çözüm ortağınız.
-      </h2>
-
-      <p>
-        EA Technic Garage olarak otomotiv yedek parça
-        alanında kaliteli ürünleri, doğru uyumluluk bilgisi
-        ve güvenilir hizmet anlayışıyla müşterilerimize
-        sunmayı hedefliyoruz.
-      </p>
 
     </section>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
 
   <footer id="iletisim">
 
-    <div class="footer-grid">
+    <div class="container footer-grid">
 
-      <div>
 
-        <div class="footer-logo-text">
-          EA TECHNIC GARAGE
+      <div class="footer-company">
+
+        <div class="footer-logo">
+          EA TECHNIC
+          <span>GARAGE</span>
         </div>
 
         <p>
           Otomotiv yedek parça ve teknik çözümler.
         </p>
 
-      </div>
-
-
-      <div>
-
-        <h3>
-          İletişim
-        </h3>
-
-        <p>
-          📞 05353293288
-        </p>
-
-        <p>
-          ✉ info@eatechnicgarage.com
-        </p>
-
-        <p>
-          📍 Bursa, Türkiye
-        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="WhatsApp">WhatsApp</a>
+        </div>
 
       </div>
 
@@ -606,21 +1487,78 @@
           Kategoriler
         </a>
 
+        <a href="#markalar">
+          Markalar
+        </a>
+
         <a href="#hakkimizda">
           Hakkımızda
         </a>
 
       </div>
 
+
+      <div>
+
+        <h3>
+          Müşteri
+        </h3>
+
+        <a href="giris.html">
+          Giriş Yap
+        </a>
+
+        <a href="kayit.html">
+          Kayıt Ol
+        </a>
+
+        <a href="#urunler">
+          Sipariş Ver
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          İletişim
+        </h3>
+
+        <p>
+          📞 Telefon bilgisi yakında
+        </p>
+
+        <p>
+          ✉ info@eatechnicgarage.com
+        </p>
+
+        <p>
+          📍 Türkiye
+        </p>
+
+      </div>
+
     </div>
 
 
-    <div class="copyright">
-      © 2026 EA Technic Garage. Tüm hakları saklıdır.
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        © 2026 EA Technic Garage.
+        Tüm hakları saklıdır.
+
+      </div>
+
     </div>
 
   </footer>
 
+
+  <!-- =====================================================
+       TOAST
+  ====================================================== -->
 
   <div
     id="toast"
@@ -628,7 +1566,12 @@
   ></div>
 
 
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
   <script src="script.js"></script>
 
 </body>
 </html>
+```
